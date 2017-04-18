@@ -1,0 +1,76 @@
+@import 'settings';
+
+.login-page, .register-page{
+  background: white;
+}
+.login-box-body, .register-box-body{
+  background: #f4f4f4;
+}
+
+.login-box, .register-box {
+    width: 480px;
+    margin: 7% auto;
+}
+.btn-primary{
+  background: $color-primary;
+  border-color: darken($color-primary, 8%);
+
+  &:hover {
+    background: lighten($color-primary, 10%);
+    border-color: lighten($color-primary, 8%);
+  }
+}
+
+body.login-page {
+  border-top: 20px solid $color-primary;
+}
+
+.main-sidebar, .left-side{
+  width: $sidebar-width;
+}
+.content-wrapper, .right-side, .main-footer{
+  margin-left: $sidebar-width;
+}
+.main-header .logo{
+  width: $sidebar-width;
+  color: black;
+  background: #d1d1d1;
+}
+.main-header .navbar{
+  background: $color-primary;
+  color: white;
+  margin-left: $sidebar-width;
+
+  a {
+    color: white;
+  }
+}
+.content-wrapper, .right-side{
+  background: #efefef;
+}
+
+.sidebar-menu, .main-sidebar .user-panel, .sidebar-menu>li.header{
+  a{
+    color: $color-primary;
+  }
+}
+
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu{
+  background: #f6f6f6;
+}
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header{
+    background: $color-primary;
+}
+.sidebar-form, .sidebar-menu>li.header{
+  background: #f6f6f6;
+}
+
+.sidebar-menu>li{
+  border-left: 5px solid transparent;
+  &.header {
+    text-transform: uppercase;
+  }
+  &.active {
+    border-left: 5px solid $color-primary;
+  }
+}

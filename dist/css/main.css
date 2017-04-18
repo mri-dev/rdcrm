@@ -1,0 +1,97 @@
+/* line 3, less/main.scss */
+.login-page, .register-page {
+  background: white;
+}
+
+/* line 6, less/main.scss */
+.login-box-body, .register-box-body {
+  background: #f4f4f4;
+}
+
+/* line 10, less/main.scss */
+.login-box, .register-box {
+  width: 480px;
+  margin: 7% auto;
+}
+
+/* line 14, less/main.scss */
+.btn-primary {
+  background: #9d1c20;
+  border-color: #7a1619;
+}
+/* line 18, less/main.scss */
+.btn-primary:hover {
+  background: #c82429;
+  border-color: #c02227;
+}
+
+/* line 24, less/main.scss */
+body.login-page {
+  border-top: 20px solid #9d1c20;
+}
+
+/* line 28, less/main.scss */
+.main-sidebar, .left-side {
+  width: 340px;
+}
+
+/* line 31, less/main.scss */
+.content-wrapper, .right-side, .main-footer {
+  margin-left: 340px;
+}
+
+/* line 34, less/main.scss */
+.main-header .logo {
+  width: 340px;
+  color: black;
+  background: #d1d1d1;
+}
+
+/* line 39, less/main.scss */
+.main-header .navbar {
+  background: #9d1c20;
+  color: white;
+  margin-left: 340px;
+}
+/* line 44, less/main.scss */
+.main-header .navbar a {
+  color: white;
+}
+
+/* line 48, less/main.scss */
+.content-wrapper, .right-side {
+  background: #efefef;
+}
+
+/* line 53, less/main.scss */
+.sidebar-menu a, .main-sidebar .user-panel a, .sidebar-menu > li.header a {
+  color: #9d1c20;
+}
+
+/* line 58, less/main.scss */
+.navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
+  background: #f6f6f6;
+}
+
+/* line 61, less/main.scss */
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+  background: #9d1c20;
+}
+
+/* line 64, less/main.scss */
+.sidebar-form, .sidebar-menu > li.header {
+  background: #f6f6f6;
+}
+
+/* line 68, less/main.scss */
+.sidebar-menu > li {
+  border-left: 5px solid transparent;
+}
+/* line 70, less/main.scss */
+.sidebar-menu > li.header {
+  text-transform: uppercase;
+}
+/* line 73, less/main.scss */
+.sidebar-menu > li.active {
+  border-left: 5px solid #9d1c20;
+}
