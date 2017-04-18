@@ -7,6 +7,7 @@ class home extends Controller  {
 			$this->out('homepage', true);
 
 			$this->user = $this->getVar('user');
+			$this->me = $this->getVar('me');
 
 			// SEO Információk
 			$SEO = null;
