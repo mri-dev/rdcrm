@@ -162,3 +162,101 @@ body.sidebar-collapse .sidebar-menu:hover {
   background: #9d1c20;
   color: white;
 }
+
+/* line 142, less/main.scss */
+.trello-lists {
+  display: flex;
+  flex-wrap: nowrap;
+}
+/* line 145, less/main.scss */
+.trello-lists .list {
+  border: 2px solid #f1f1f1;
+  border-collapse: collapse;
+  border-top: none;
+  border-bottom: none;
+  flex-basis: calc(100%/3);
+  padding: 0 10px;
+}
+/* line 153, less/main.scss */
+.trello-lists .list h2 {
+  margin: 0;
+  background: #d1d1d1;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+  font-size: 1.2em;
+  color: black;
+}
+/* line 163, less/main.scss */
+.trello-lists .list:first-child {
+  border-left: none;
+}
+/* line 166, less/main.scss */
+.trello-lists .list:last-child {
+  border-right: none;
+}
+/* line 170, less/main.scss */
+.trello-lists .list .cards .card {
+  border: 1px dashed #c3c3c3;
+  padding: 8px;
+  margin: 5px 0;
+  background: #f6f6f6;
+}
+/* line 176, less/main.scss */
+.trello-lists .list .cards .card .title {
+  font-weight: bold;
+  color: black;
+}
+/* line 181, less/main.scss */
+.trello-lists .list .cards .card .due {
+  font-size: 0.8em;
+  color: #888888;
+}
+/* line 185, less/main.scss */
+.trello-lists .list .cards .card .due.duesuccess {
+  color: green;
+}
+/* line 190, less/main.scss */
+.trello-lists .list .cards .card .desc {
+  border-top: 1px solid #cfcfcf;
+  margin-top: 4px;
+  padding-top: 4px;
+  font-size: 0.8em;
+  color: #888888;
+}
+/* line 198, less/main.scss */
+.trello-lists .list .cards .card .labels {
+  margin-top: 4px;
+}
+/* line 200, less/main.scss */
+.trello-lists .list .cards .card .labels .label {
+  margin: 3px;
+  font-weight: normal;
+  border-radius: 20px;
+  font-size: 0.8em;
+  opacity: 0.9;
+  line-height: 1;
+  padding: 2px 10px;
+}
+/* line 212, less/main.scss */
+.trello-lists .list .cards .card .checklists .checklist {
+  margin: 4px 0;
+  border-top: 5px solid #a7a7a7;
+  background: #ffffff;
+  padding: 8px;
+}
+/* line 218, less/main.scss */
+.trello-lists .list .cards .card .checklists .checklist h3 {
+  margin: 0 0 5px 0;
+  color: black;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+/* line 225, less/main.scss */
+.trello-lists .list .cards .card .checklists .checklist .check-item {
+  color: orange;
+}
+/* line 228, less/main.scss */
+.trello-lists .list .cards .card .checklists .checklist .check-item.complete {
+  color: green;
+}

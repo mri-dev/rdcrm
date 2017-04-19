@@ -19,13 +19,14 @@
 
 <!-- jQuery 2.2.3 -->
 <script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/plugins/jQueryUI/jquery-ui.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
 <!-- ChartJS 1.0.1 -->
 <script src="/plugins/chartjs/Chart.min.js"></script>
-<script src="https://api.trello.com/1/client.js?key={$settings.TRELLO_API_KEY}"></script>
+<script src="https://api.trello.com/1/client.js?key={$settings.TRELLO_API_KEY}&token=ba5ebbfb5b58922a170b0f26e26c2088ead945cbba9d570d88c490513a86b76e"></script>
 
 <!-- iCheck -->
 <script src="/plugins/iCheck/icheck.min.js"></script>
