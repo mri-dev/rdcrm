@@ -25,6 +25,7 @@
 <script src="/dist/js/app.min.js"></script>
 <!-- ChartJS 1.0.1 -->
 <script src="/plugins/chartjs/Chart.min.js"></script>
+<script src="https://api.trello.com/1/client.js?key={$settings.TRELLO_API_KEY}"></script>
 
 <!-- iCheck -->
 <script src="/plugins/iCheck/icheck.min.js"></script>

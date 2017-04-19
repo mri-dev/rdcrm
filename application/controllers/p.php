@@ -1,16 +1,24 @@
 <?
-class home extends Controller  {
+use ProjectManager\Project;
+
+class p extends Controller  {
 		private $user = false;
 		function __construct(){
 			parent::__construct();
-
-			$this->out('homepage', true);
 
 			$this->user = $this->getVar('user');
 			$this->me = $this->getVar('me');
 
 			$this->projects = $this->Projects->getList($this->me);
 			$this->out('projects', $this->projects);
+
+			$project = new Project($this->gets[1], $this->me, $this->Projects->arg );
+			$this->out('p', $project);
+
+			if( !$project->ID()) {
+				Helper::reload($this->settings['page_url']);
+				exit;
+			}
 
 			// SEO Információk
 			$SEO = null;

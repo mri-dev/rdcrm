@@ -174,7 +174,33 @@
     <section class="sidebar">
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
-        <li class="header">{$lng_projektek}</li>
+        <li class="header">{$lng_penzugyek}</li>
+        <li>
+          <a href="/payments/?group=project"><i class="fa fa-money"></i> {$lng_projekt} {$lng_koltsegek}</a>
+        </li>
+        <li class="header">{$lng_aktiv} {$lng_projektek}</li>
+        {if !$projects}
+        <li class="content no-project">
+          Nincs aktív projekt folyamatban.
+        </li>
+        {else}
+          {foreach from=$projects item=project}
+          <li class="project-item {if $GETS[0] == 'p' && $GETS[1] == $project->ID()}active{/if}">
+              <div class="name">
+                <a href="/p/{$project->ID()}">{$project->Name()}</a>
+              </div>
+              <div class="author">
+                {$project->Author()}
+              </div>
+              <div class="desc">
+                {$project->Description()}
+              </div>
+              <div class="url">
+                <i class="fa fa-globe"></i> <a href="{$project->SandboxURL()}" target="_blank">{$project->SandboxURL()}</a>
+              </div>
+          </li>
+          {/foreach}
+        {/if}
       </ul>
       <!-- /.sidebar-menu -->
     </section>

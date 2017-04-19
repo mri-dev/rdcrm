@@ -28,6 +28,11 @@
 	$_['mentes'] = 'Mentés';
 	$_['valtozasok_mentese'] = 'Változások mentése';
 	$_['projektek'] = 'Projektek';
+	$_['projekt'] = 'Projekt';
+	$_['aktiv'] = 'Aktív';
+	$_['penzugyek'] = 'Pénzügyek';
+	$_['koltsegek'] = 'költségek';
+	$_['osszesito'] = 'összesítő';
 
 	$_['xxx'] = '';
 ?>

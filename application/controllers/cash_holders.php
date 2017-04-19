@@ -1,16 +1,14 @@
 <?
-class home extends Controller  {
+use CashFlowManager\CashHolders;
+class cash_holders extends Controller  {
 		private $user = false;
 		function __construct(){
 			parent::__construct();
 
-			$this->out('homepage', true);
-
-			$this->user = $this->getVar('user');
-			$this->me = $this->getVar('me');
-
-			$this->projects = $this->Projects->getList($this->me);
-			$this->out('projects', $this->projects);
+      if (isset($_POST['saveCashHolder'])) {
+				$ch = (new CashHolders(array('db' => $this->db, 'smarty' => $this->smarty)))->save($_POST, $_POST['saveCashHolder']);
+				Helper::reload();
+			}
 
 			// SEO Információk
 			$SEO = null;

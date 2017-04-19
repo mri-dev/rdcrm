@@ -84,14 +84,81 @@ body.login-page {
 }
 
 /* line 68, less/main.scss */
+body.sidebar-collapse .sidebar-menu:hover {
+  position: absolute;
+  background: white;
+}
+
+/* line 74, less/main.scss */
 .sidebar-menu > li {
   border-left: 5px solid transparent;
 }
-/* line 70, less/main.scss */
+/* line 76, less/main.scss */
 .sidebar-menu > li.header {
   text-transform: uppercase;
 }
-/* line 73, less/main.scss */
+/* line 79, less/main.scss */
 .sidebar-menu > li.active {
   border-left: 5px solid #9d1c20;
+}
+/* line 82, less/main.scss */
+.sidebar-menu > li.project-item {
+  border-bottom: 5px solid #efefef;
+  padding: 10px;
+}
+/* line 86, less/main.scss */
+.sidebar-menu > li.project-item .name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+/* line 89, less/main.scss */
+.sidebar-menu > li.project-item .name a {
+  color: black;
+}
+/* line 91, less/main.scss */
+.sidebar-menu > li.project-item .name a:hover {
+  color: #9d1c20;
+}
+/* line 97, less/main.scss */
+.sidebar-menu > li.project-item .author {
+  font-size: 0.9em;
+  color: #b3b3b3;
+}
+/* line 102, less/main.scss */
+.sidebar-menu > li.project-item .desc {
+  font-size: 0.9;
+  color: #555555;
+  margin-bottom: 8px;
+}
+/* line 108, less/main.scss */
+.sidebar-menu > li.project-item .url {
+  font-size: 0.8em;
+}
+
+/* line 114, less/main.scss */
+.project-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 119, less/main.scss */
+.project-menu li {
+  padding: 4px 0;
+}
+/* line 122, less/main.scss */
+.project-menu a {
+  display: block;
+  padding: 10px;
+  background: #f2f2f2;
+  color: black;
+}
+/* line 128, less/main.scss */
+.project-menu a i {
+  width: 25px;
+  text-align: center;
+}
+/* line 135, less/main.scss */
+.project-menu li.active a {
+  background: #9d1c20;
+  color: white;
 }

@@ -1,13 +1,12 @@
 <?
 use DatabaseManager\Database;
 use PortalManager\Template;
-use PortalManager\Ads;
 use PortalManager\Users;
 use PortalManager\User;
 use PortalManager\Portal;
 use Applications\Captcha;
 use PortalManager\Lang;
-use CashFlowManager\CashHolders;
+use ProjectManager\Projects;
 
 class Controller
 {
@@ -87,12 +86,13 @@ class Controller
           $this->lang->loadLangText( 'transaction', true, true )
         );
 
-				$this->User         = new Users( array( 'db' => $this->db, 'lang' => $lang_users, 'smarty' => $this->smarty, 'view' => $this->getAllVars() ) );
-        $this->Portal       = new Portal( array( 'db' => $this->db ) );
+				$this->User = new Users( array( 'db' => $this->db, 'lang' => $lang_users, 'smarty' => $this->smarty, 'view' => $this->getAllVars() ) );
+        $this->Portal = new Portal( array( 'db' => $this->db ) );
+				$this->Projects = new Projects( array( 'db' => $this->db, 'lang' => $lang_users, 'smarty' => $this->smarty ) );
 
         //$this->captcha      = (new Captcha)->init( $this->settings['recaptcha_public_key'], $this->settings['recaptcha_private_key'] );
         $user =  $this->User->get( self::$user_opt );
-				$me =  new User($user['data']['ID'], array( 'db' => $this->db, 'lang' => $lang_users, 'smarty' => $this->smarty) );
+				$me =  new User($user['data']['ID'], array( 'db' => $this->db, 'lang' => $lang_users, 'smarty' => $this->smarty, 'settings' => $this->settings) );
 
         if( !$user && $this->gets[0] != 'welcome' && $this->gets[0] != 'forms'){
             header('Location: /welcome');

@@ -65,7 +65,7 @@ class User
 
 	public function getUserGroup()
 	{
-		return $this->user['data']['user_group'];
+		return (int)$this->user['data']['user_group'];
 	}
 
 	public function getValue( $key )
@@ -75,6 +75,36 @@ class User
 		if( empty($v) && !$v ) return false;
 
 		return $v;
+	}
+
+	public function isAdmin()
+	{
+		$group = (int)$this->getUserGroup();
+
+		if($group === (int)$this->settings['USERS_GROUP_ADMIN']) {
+			return true;
+		}
+		return false;
+	}
+
+	public function isReferer()
+	{
+		$group = (int)$this->getUserGroup();
+
+		if($group === (int)$this->settings['USERS_GROUP_REFERER']) {
+			return true;
+		}
+		return false;
+	}
+
+	public function isUser()
+	{
+		$group = (int)$this->getUserGroup();
+
+		if($group === (int)$this->settings['USERS_GROUP_USER']) {
+			return true;
+		}
+		return false;
 	}
 
 	public function getName()
