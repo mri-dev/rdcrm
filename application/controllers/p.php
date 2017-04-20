@@ -1,5 +1,6 @@
 <?
 use ProjectManager\Project;
+use ProjectManager\Payments;
 
 class p extends Controller  {
 		private $user = false;
@@ -14,6 +15,9 @@ class p extends Controller  {
 
 			$project = new Project($this->gets[1], $this->me, $this->Projects->arg );
 			$this->out('p', $project);
+			$payments = new Payments($project, $this->Projects->arg );
+			$this->out('payments', $payments);
+			$this->out('project_payments', $payments->getList());
 
 			if( !$project->ID()) {
 				Helper::reload($this->settings['page_url']);
