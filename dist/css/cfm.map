@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "less/cfm.css",
+	"sources": [
+		"less/cfm.scss"
+	],
+	"sourcesContent": [
+		".info-box-number{\n  &.text-medium {\n    font-size: 28px;\n  }\n  &.text-big {\n    font-size: 38px;\n  }\n}\n"
+	],
+	"mappings": ";AAAA,AAAA,gBAAgB,AACb,YAAY,CAAC;EACZ,SAAS,EAAE,IAAK,GACjB;;;AAHH,AAAA,gBAAgB,AAIb,SAAS,CAAC;EACT,SAAS,EAAE,IAAK,GACjB",
+	"names": []
+}

@@ -2,7 +2,12 @@
   <h3 class="box-title"><i class="fa fa-inbox"></i> Projekt áttekintés</h3>
 </div>
 <div class="box-body">
+  {if $me->isAdmin() || $me->isReferer()}
+    <a href="/p/{$p->ID()}/payments/?v=mod&a=add" style="line-height: 32px;" class="pull-right"><i class="fa fa-plus-circle"></i> Új díjbekérő</a>
+  {/if}
   <h3 style="margin: 4px 0;">Pénzügyek</h3>
+  <div class="clearfix"></div>
+  {if $payments->total_amount > 0}
   <table class="table table-striped no-margin">
     <thead>
       <tr>
@@ -34,4 +39,11 @@
       <div class="progress-bar progress-bar-yellow" style="width: {$payments->paid_amount/($payments->total_amount/100)}%"></div>
     </div>
   </div>
+  {else}
+  <br>
+  <div class="alert alert-warning">
+    <h4><i class="fa fa-info-circle"></i> Nincs díjbekérő meghatározva.</h4>
+    Nincs további teendője.
+  </div>
+  {/if}
 </div>

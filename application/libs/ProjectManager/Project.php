@@ -79,6 +79,11 @@ class Project
     return $this->project['sandbox_url'];
   }
 
+  public function TrelloBoardID()
+  {
+    return $this->project['trello_id'];
+  }
+
   public function __destruct()
   {
     $this->arg = null;

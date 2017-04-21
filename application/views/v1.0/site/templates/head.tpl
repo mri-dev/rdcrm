@@ -157,7 +157,7 @@
           </li>
           <!-- Control Sidebar Toggle Button -->
           <!--
-          <li> 
+          <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
           -->
@@ -174,6 +174,9 @@
     <section class="sidebar">
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
+        {if $me->isAdmin()}
+        <li class="header">Adminisztráció</li>
+        {/if}
         <li class="header">{$lng_penzugyek}</li>
         <li>
           <a href="/payments/?group=project"><i class="fa fa-money"></i> {$lng_projekt} {$lng_koltsegek}</a>

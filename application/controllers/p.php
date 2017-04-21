@@ -10,6 +10,13 @@ class p extends Controller  {
 			$this->user = $this->getVar('user');
 			$this->me = $this->getVar('me');
 
+			$editor = false;
+
+			if ($this->me->isAdmin() || $this->me->isReferer()) {
+				$editor = true;
+			}
+			$this->out('editor', $editor);
+
 			$this->projects = $this->Projects->getList($this->me);
 			$this->out('projects', $this->projects);
 

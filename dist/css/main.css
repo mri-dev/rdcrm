@@ -1,262 +1,216 @@
-/* line 3, less/main.scss */
+/* line 3, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .login-page, .register-page {
-  background: white;
-}
+  background: white; }
 
-/* line 6, less/main.scss */
+/* line 6, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .login-box-body, .register-box-body {
-  background: #f4f4f4;
-}
+  background: #f4f4f4; }
 
-/* line 10, less/main.scss */
+/* line 10, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .login-box, .register-box {
   width: 480px;
-  margin: 7% auto;
-}
+  margin: 7% auto; }
 
-/* line 14, less/main.scss */
+/* line 14, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .btn-primary {
   background: #9d1c20;
-  border-color: #7a1619;
-}
-/* line 18, less/main.scss */
-.btn-primary:hover {
-  background: #c82429;
-  border-color: #c02227;
-}
+  border-color: #7a1619; }
+  /* line 18, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .btn-primary:hover {
+    background: #c82429;
+    border-color: #c02227; }
 
-/* line 24, less/main.scss */
+/* line 24, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 body.login-page {
-  border-top: 20px solid #9d1c20;
-}
+  border-top: 20px solid #9d1c20; }
 
-/* line 28, less/main.scss */
+/* line 28, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .main-sidebar, .left-side {
-  width: 340px;
-}
+  width: 340px; }
 
-/* line 31, less/main.scss */
+/* line 31, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .content-wrapper, .right-side, .main-footer {
-  margin-left: 340px;
-}
+  margin-left: 340px; }
 
-/* line 34, less/main.scss */
+/* line 34, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .main-header .logo {
   width: 340px;
   color: black;
-  background: #d1d1d1;
-}
+  background: #d1d1d1; }
 
-/* line 39, less/main.scss */
+/* line 39, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .main-header .navbar {
   background: #9d1c20;
   color: white;
-  margin-left: 340px;
-}
-/* line 44, less/main.scss */
-.main-header .navbar a {
-  color: white;
-}
+  margin-left: 340px; }
+  /* line 44, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .main-header .navbar a {
+    color: white; }
 
-/* line 48, less/main.scss */
+/* line 48, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .content-wrapper, .right-side {
-  background: #efefef;
-}
+  background: #efefef; }
 
-/* line 53, less/main.scss */
+/* line 53, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .sidebar-menu a, .main-sidebar .user-panel a, .sidebar-menu > li.header a {
-  color: #9d1c20;
-}
+  color: #9d1c20; }
 
-/* line 58, less/main.scss */
+/* line 58, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
-  background: #f6f6f6;
-}
+  background: #f6f6f6; }
 
-/* line 61, less/main.scss */
+/* line 61, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
-  background: #9d1c20;
-}
+  background: #9d1c20; }
 
-/* line 64, less/main.scss */
+/* line 64, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .sidebar-form, .sidebar-menu > li.header {
-  background: #f6f6f6;
-}
+  background: #f6f6f6; }
 
-/* line 68, less/main.scss */
+/* line 68, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 body.sidebar-collapse .sidebar-menu:hover {
   position: absolute;
-  background: white;
-}
+  background: white; }
 
-/* line 74, less/main.scss */
+/* line 74, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .sidebar-menu > li {
-  border-left: 5px solid transparent;
-}
-/* line 76, less/main.scss */
-.sidebar-menu > li.header {
-  text-transform: uppercase;
-}
-/* line 79, less/main.scss */
-.sidebar-menu > li.active {
-  border-left: 5px solid #9d1c20;
-}
-/* line 82, less/main.scss */
-.sidebar-menu > li.project-item {
-  border-bottom: 5px solid #efefef;
-  padding: 10px;
-}
-/* line 86, less/main.scss */
-.sidebar-menu > li.project-item .name {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-/* line 89, less/main.scss */
-.sidebar-menu > li.project-item .name a {
-  color: black;
-}
-/* line 91, less/main.scss */
-.sidebar-menu > li.project-item .name a:hover {
-  color: #9d1c20;
-}
-/* line 97, less/main.scss */
-.sidebar-menu > li.project-item .author {
-  font-size: 0.9em;
-  color: #b3b3b3;
-}
-/* line 102, less/main.scss */
-.sidebar-menu > li.project-item .desc {
-  font-size: 0.9;
-  color: #555555;
-  margin-bottom: 8px;
-}
-/* line 108, less/main.scss */
-.sidebar-menu > li.project-item .url {
-  font-size: 0.8em;
-}
+  border-left: 5px solid transparent; }
+  /* line 76, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .sidebar-menu > li.header {
+    text-transform: uppercase; }
+  /* line 79, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .sidebar-menu > li.active {
+    border-left: 5px solid #9d1c20; }
+  /* line 82, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .sidebar-menu > li.project-item {
+    border-bottom: 5px solid #efefef;
+    padding: 10px; }
+    /* line 86, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .sidebar-menu > li.project-item .name {
+      font-size: 1.2em;
+      font-weight: bold; }
+      /* line 89, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+      .sidebar-menu > li.project-item .name a {
+        color: black; }
+        /* line 91, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+        .sidebar-menu > li.project-item .name a:hover {
+          color: #9d1c20; }
+    /* line 97, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .sidebar-menu > li.project-item .author {
+      font-size: 0.9em;
+      color: #b3b3b3; }
+    /* line 102, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .sidebar-menu > li.project-item .desc {
+      font-size: 0.9;
+      color: #555555;
+      margin-bottom: 8px; }
+    /* line 108, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .sidebar-menu > li.project-item .url {
+      font-size: 0.8em; }
 
-/* line 114, less/main.scss */
+/* line 114, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .project-menu {
   list-style: none;
   margin: 0;
-  padding: 0;
-}
-/* line 119, less/main.scss */
-.project-menu li {
-  padding: 4px 0;
-}
-/* line 122, less/main.scss */
-.project-menu a {
-  display: block;
-  padding: 10px;
-  background: #f2f2f2;
-  color: black;
-}
-/* line 128, less/main.scss */
-.project-menu a i {
-  width: 25px;
-  text-align: center;
-}
-/* line 135, less/main.scss */
-.project-menu li.active a {
-  background: #9d1c20;
-  color: white;
-}
+  padding: 0; }
+  /* line 119, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .project-menu li {
+    padding: 4px 0; }
+  /* line 122, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .project-menu a {
+    display: block;
+    padding: 10px;
+    background: #f2f2f2;
+    color: black; }
+    /* line 128, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .project-menu a i {
+      width: 25px;
+      text-align: center; }
+  /* line 135, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .project-menu li.active a {
+    background: #9d1c20;
+    color: white; }
 
-/* line 142, less/main.scss */
+/* line 142, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
 .trello-lists {
   display: flex;
-  flex-wrap: nowrap;
-}
-/* line 145, less/main.scss */
-.trello-lists .list {
-  border: 2px solid #f1f1f1;
-  border-collapse: collapse;
-  border-top: none;
-  border-bottom: none;
-  flex-basis: calc(100%/3);
-  padding: 0 10px;
-}
-/* line 153, less/main.scss */
-.trello-lists .list h2 {
-  margin: 0;
-  background: #d1d1d1;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 10px;
-  font-size: 1.2em;
-  color: black;
-}
-/* line 163, less/main.scss */
-.trello-lists .list:first-child {
-  border-left: none;
-}
-/* line 166, less/main.scss */
-.trello-lists .list:last-child {
-  border-right: none;
-}
-/* line 170, less/main.scss */
-.trello-lists .list .cards .card {
-  border: 1px dashed #c3c3c3;
-  padding: 8px;
-  margin: 5px 0;
-  background: #f6f6f6;
-}
-/* line 176, less/main.scss */
-.trello-lists .list .cards .card .title {
-  font-weight: bold;
-  color: black;
-}
-/* line 181, less/main.scss */
-.trello-lists .list .cards .card .due {
-  font-size: 0.8em;
-  color: #888888;
-}
-/* line 185, less/main.scss */
-.trello-lists .list .cards .card .due.duesuccess {
-  color: green;
-}
-/* line 190, less/main.scss */
-.trello-lists .list .cards .card .desc {
-  border-top: 1px solid #cfcfcf;
-  margin-top: 4px;
-  padding-top: 4px;
-  font-size: 0.8em;
-  color: #888888;
-}
-/* line 198, less/main.scss */
-.trello-lists .list .cards .card .labels {
-  margin-top: 4px;
-}
-/* line 200, less/main.scss */
-.trello-lists .list .cards .card .labels .label {
-  margin: 3px;
-  font-weight: normal;
-  border-radius: 20px;
-  font-size: 0.8em;
-  opacity: 0.9;
-  line-height: 1;
-  padding: 2px 10px;
-}
-/* line 212, less/main.scss */
-.trello-lists .list .cards .card .checklists .checklist {
-  margin: 4px 0;
-  border-top: 5px solid #a7a7a7;
-  background: #ffffff;
-  padding: 8px;
-}
-/* line 218, less/main.scss */
-.trello-lists .list .cards .card .checklists .checklist h3 {
-  margin: 0 0 5px 0;
-  color: black;
-  font-size: 1.3em;
-  font-weight: bold;
-}
-/* line 225, less/main.scss */
-.trello-lists .list .cards .card .checklists .checklist .check-item {
-  color: orange;
-}
-/* line 228, less/main.scss */
-.trello-lists .list .cards .card .checklists .checklist .check-item.complete {
-  color: green;
-}
+  flex-wrap: nowrap; }
+  /* line 145, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+  .trello-lists .list {
+    border: 2px solid #f1f1f1;
+    border-collapse: collapse;
+    border-top: none;
+    border-bottom: none;
+    flex-basis: calc(100%/3);
+    padding: 0 10px; }
+    /* line 153, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .trello-lists .list h2 {
+      margin: 0;
+      background: #d1d1d1;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 10px;
+      font-size: 1.2em;
+      color: black; }
+    /* line 163, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .trello-lists .list:first-child {
+      border-left: none; }
+    /* line 166, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .trello-lists .list:last-child {
+      border-right: none; }
+    /* line 170, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+    .trello-lists .list .cards .card {
+      border: 1px dashed #c3c3c3;
+      padding: 8px;
+      margin: 5px 0;
+      background: #f6f6f6; }
+      /* line 176, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+      .trello-lists .list .cards .card .title {
+        font-weight: bold;
+        color: black; }
+      /* line 181, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+      .trello-lists .list .cards .card .due {
+        font-size: 0.8em;
+        color: #888888; }
+        /* line 185, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+        .trello-lists .list .cards .card .due.duesuccess {
+          color: green; }
+      /* line 190, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+      .trello-lists .list .cards .card .desc {
+        border-top: 1px solid #cfcfcf;
+        margin-top: 4px;
+        padding-top: 4px;
+        font-size: 0.8em;
+        color: #888888; }
+      /* line 198, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+      .trello-lists .list .cards .card .labels {
+        margin-top: 4px; }
+        /* line 200, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+        .trello-lists .list .cards .card .labels .label {
+          margin: 3px;
+          font-weight: normal;
+          border-radius: 20px;
+          font-size: 0.8em;
+          opacity: 0.9;
+          line-height: 1;
+          padding: 2px 10px; }
+      /* line 212, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+      .trello-lists .list .cards .card .checklists .checklist {
+        margin: 4px 0;
+        border-top: 5px solid #a7a7a7;
+        background: #ffffff;
+        padding: 8px; }
+        /* line 218, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+        .trello-lists .list .cards .card .checklists .checklist h3 {
+          margin: 0 0 5px 0;
+          color: black;
+          font-size: 1.3em;
+          font-weight: bold; }
+        /* line 225, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+        .trello-lists .list .cards .card .checklists .checklist .check-item {
+          color: orange; }
+          /* line 228, /Users/MolnarIstvan/Documents/Munka/Idea Fontana Kft/Git/rdcrm/dist/css/less/main.scss */
+          .trello-lists .list .cards .card .checklists .checklist .check-item.complete {
+            color: green; }
+
+/*# sourceMappingURL=../main.map */

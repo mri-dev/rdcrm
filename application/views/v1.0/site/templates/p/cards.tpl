@@ -2,14 +2,22 @@
   <h3 class="box-title"><i class="fa fa-trello"></i> Fejlesztői log</h3>
 </div>
 <div class="box-body">
-<div id="trello-list-holder" class="trello-lists">
-
+  {if $p->TrelloBoardID() == ''}
+    <div class="no-trello-support">
+      <div class="alert alert-warning">
+        <h4><i class="fa fa-info-circle"></i> Rendszerüzenet</h4>
+        Nincs fejlesztői log konfigurálva ehhez a projekthez.
+      </div>
+    </div>
+  {else}
+  <div id="trello-list-holder" class="trello-lists"></div>
+  {/if}
 </div>
-</div>
+{if $p->TrelloBoardID() != ''}
 {literal}
 <script type="text/javascript">
 var authenticationSuccess = function() {
-  Trello.get('/boards/9M0JOHA1/lists', loadLists, error);
+  Trello.get('/boards/{/literal}{$p->TrelloBoardID()}{literal}/lists', loadLists, error);
 };
 var authenticationFailure = function() {
 
@@ -67,3 +75,4 @@ $(function(){
 })
 </script>
 {/literal}
+{/if}
