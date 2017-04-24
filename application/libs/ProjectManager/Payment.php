@@ -57,6 +57,10 @@ class Payment
     return $this->payment['paid_date'];
   }
 
+  public function ID()
+  {
+    return $this->payment['ID'];
+  }
 
   public function Name()
   {
@@ -77,6 +81,49 @@ class Payment
 
     return $status;
   }
+
+  public function ProjectID()
+  {
+    return $this->payment['projectid'];
+  }
+
+  public function isCompleted()
+  {
+    return ($this->payment['completed'] == 0) ? false : true;
+  }
+
+  public function setCompleted()
+  {
+    $this->db->update(
+      \ProjectManager\Payments::DBTABLE,
+      array(
+        'completed' => 1,
+        'paid_date' => NOW
+      ),
+      sprintf("ID = %d", $this->ID())
+    );
+  }
+
+  public function setUncompleted()
+  {
+    $this->db->update(
+      \ProjectManager\Payments::DBTABLE,
+      array(
+        'completed' => 0,
+        'paid_date' => NULL
+      ),
+      sprintf("ID = %d", $this->ID())
+    );
+  }
+
+
+  public function data($key=false)
+  {
+    if(!$key) return $this->payment;
+
+    return $this->payment[$key];
+  }
+
   public function __destruct()
   {
     $this->arg = null;

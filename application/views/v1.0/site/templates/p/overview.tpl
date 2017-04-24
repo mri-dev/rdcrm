@@ -16,6 +16,9 @@
         <th>Fizetendő</th>
         <th>Fizetési határidő</th>
         <th>Teljesítés ideje</th>
+        {if $editor}
+          <th class="center"><i class="fa fa-gear"></i></th>
+        {/if}
       </tr>
     </thead>
     <tbody>
@@ -25,7 +28,13 @@
         <td>{$payment->Status(true)}</td>
         <td><strong>{$payment->Amount()|number_format:0:"":" "} {$settings.valuta}</strong></td>
         <td>{$payment->DueDate()}</td>
-        <td>{$payment->PaidDate()}</td>
+        <td class="center">{$payment->PaidDate()}</td>
+        {if $editor}
+          <td class="editor-ai">
+            <a href="/p/{$p->ID()}/payments/?v=mod&a=edit&id={$payment->ID()}" title="Szerkesztés"><i class="fa fa-pencil"></i></a> &nbsp;
+            <a href="/p/{$p->ID()}/payments/?v=remove&id={$payment->ID()}" title="Végleges törlés"><i class="fa fa-trash"></i></a>
+          </td>
+        {/if}
       </tr>
       {/foreach}
     </tbody>

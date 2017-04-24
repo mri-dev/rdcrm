@@ -1,11 +1,16 @@
 <?
 use ProjectManager\Project;
 use ProjectManager\Payments;
+use ProjectManager\Payment;
+use PortalManager\Form;
 
 class p extends Controller  {
 		private $user = false;
 		function __construct(){
 			parent::__construct();
+
+			$form = new Form( $_GET['response'] );
+			$this->out( 'form', $form );
 
 			$this->user = $this->getVar('user');
 			$this->me = $this->getVar('me');
@@ -29,6 +34,21 @@ class p extends Controller  {
 			if( !$project->ID()) {
 				Helper::reload($this->settings['page_url']);
 				exit;
+			}
+
+			// Subpage
+			if ( !empty($this->gets[2]) ) {
+				switch ($this->gets[2]) {
+					case 'payments':
+						if($_GET['v'] == 'mod' && $_GET['a'] == 'edit') {
+							$check = new Payment($_GET['id'], $this->Projects->arg );
+							if($check->ID()) {
+								$this->out('check', $check);
+							}
+						}
+						$this->out('controlpages', $this->gets[2]);
+					break;
+				}
 			}
 
 			// SEO Információk

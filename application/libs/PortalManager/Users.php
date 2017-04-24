@@ -414,7 +414,7 @@ class Users
 	function login($data){
 		$re 	= array();
 
-		$user_group = $data['user_group'];
+		$user_group = ($data['user_group'] == '') ? false: (int)$data['user_group'];
 
 
 		if( empty($data['email']) || empty($data['pw'])) {
@@ -1057,10 +1057,10 @@ class Users
 		$re = $mail->sendMail();
 	}
 
-	function userExists( $by = 'email', $val, $group = 0 ){
+	function userExists( $by = 'email', $val, $group = false ){
 		$q = "SELECT ID FROM ".self::TABLE_NAME." WHERE ".$by." = '".$val."' ";
 
-		if( $group !== 0 ){
+		if( $group !== false ){
 			$q .= " and user_group = $group ";
 		}
 		$c = $this->db->query($q);
@@ -1085,8 +1085,12 @@ class Users
 		}
 	}
 
-	function isActivated($email, $group = 0 ){
-		$q = "SELECT ID FROM ".self::TABLE_NAME." WHERE user_group = $group and email = '".$email."' and aktivalva IS NOT NULL";
+	function isActivated($email, $group = false ){
+		$q = "SELECT ID FROM ".self::TABLE_NAME." WHERE email = '".$email."' and aktivalva IS NOT NULL";
+
+		if($group !== false){
+			$q .= " and user_group = $group ";
+		}
 
 		$c = $this->db->query($q);
 
@@ -1097,8 +1101,12 @@ class Users
 		}
 	}
 
-	function isEnabled($email, $group = 0 ){
-		$q = "SELECT ID FROM ".self::TABLE_NAME." WHERE user_group = $group and email = '".$email."' and engedelyezve = 1";
+	function isEnabled($email, $group = false){
+		$q = "SELECT ID FROM ".self::TABLE_NAME." WHERE email = '".$email."' and engedelyezve = 1";
+
+		if($group !== false){
+			$q .= " and user_group = $group ";
+		}
 
 		$c = $this->db->query($q);
 
@@ -1109,10 +1117,16 @@ class Users
 		}
 	}
 
-	function validUser($email, $password, $group = 0 ){
+	function validUser($email, $password, $group = false ){
 		if($email == '' || $password == '') throw new \Exception('Hiányzó adatok. Nem lehet azonosítani a felhasználót!');
 
-		$c = $this->db->query("SELECT ID FROM ".self::TABLE_NAME." WHERE user_group = $group and  email = '$email' and password = '".\Hash::jelszo($password)."'");
+		$q = "SELECT ID FROM ".self::TABLE_NAME." WHERE email = '$email' and password = '".\Hash::jelszo($password)."'";
+
+		if($group !== false){
+			$q .= " and user_group = $group ";
+		}
+
+		$c = $this->db->query($q);
 
 		if($c->rowCount() == 0){
 			return false;

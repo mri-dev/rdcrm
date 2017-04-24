@@ -231,7 +231,6 @@
         <input type="hidden" name="return" value="{$smarty.const.CURRENT_PAGE}">
         <input type="hidden" name="form" value="1">
         <input type="hidden" name="for" value="user">
-        <input type="hidden" name="user_group" value="0">
         <input type="hidden" name="session_path" value="/welcome">
 
         <div class="form-group has-feedback">

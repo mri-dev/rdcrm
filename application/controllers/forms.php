@@ -7,6 +7,7 @@ use PortalManager\Form;
 use TransactionManager\Barion;
 use TransactionManager\Transaction;
 use ExceptionManager\RedirectException;
+use ProjectManager\Payment;
 
 class forms extends Controller {
 	function __construct(){
@@ -17,10 +18,51 @@ class forms extends Controller {
 		}
 
 		$form = new Form( $_GET['response'] );
-		$this->out( 'form', $form );  
+		$this->out( 'form', $form );
 
 		// SEO Információk
 		$SEO = null;
+	}
+
+	function payments()
+	{
+		$this->hidePatern = true;
+		$return_url = $_POST['return'];
+
+		$payment = new Payment($_POST['id'], $this->Projects->arg );
+
+		switch( $_POST['for'] )
+		{
+			case 'actionsave':
+				$done = false;
+
+				if(isset($_POST['setCompleted'])) {
+					$payment->setCompleted();
+					$done = sprintf("Sikeresen befizetetté jelölte a(z) %s díjbekérőt.", $payment->Name());
+				}
+
+				if(isset($_POST['setUncompleted'])) {
+					$payment->setUncompleted();
+					$done = sprintf("Sikeresen befizetetlenné jelölte a(z) %s díjbekérőt.", $payment->Name());
+				}
+
+				if(isset($_POST['remove'])) {
+					$payment->delete();
+					$return_url = '/p/'.$payment->ProjectID();
+					$done = 'Sikeresen befizetetté jelölte a(z) <strong>'.$payment->Name().'</strong> díjbekérőt.';
+				}
+
+				if($done) {
+					\PortalManager\Form::formDone( $done, false, $return_url );
+				} else {
+					Helper::reload($return_url);
+					exit;
+				}
+			break;
+			case 'save': case 'create':
+
+			break;
+		}
 	}
 
 	/**

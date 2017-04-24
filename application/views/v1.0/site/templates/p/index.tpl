@@ -2,6 +2,9 @@
   <h1>{$p->Name()} <small>{$p->Author()}</small></h1>
 </section>
 <section class="content">
+  {if $form && $form->getMsg(1)}
+    {$form->getMsg(1)}
+  {/if}
   <div class="row">
     <div class="col-md-3">
       <div class="box box-solid">
@@ -20,10 +23,14 @@
     </div>
     <div class="col-md-9">
       <div class="box box-solid">
-        {if $smarty.get.page == ''}
-          {include file="$template_root/p/overview.tpl"}
+        {if $controlpages}
+          {include file="$template_root/p/control/"|cat:$controlpages|cat:"-"|cat:$smarty.get.v|cat:".tpl"}
         {else}
-            {include file="$template_root/p/"|cat:$smarty.get.page|cat:".tpl"}
+          {if $smarty.get.page == ''}
+            {include file="$template_root/p/overview.tpl"}
+          {else}
+              {include file="$template_root/p/"|cat:$smarty.get.page|cat:".tpl"}
+          {/if}
         {/if}
       </div>
     </div>
