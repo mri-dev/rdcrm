@@ -1,8 +1,10 @@
 <form class="" action="/forms/payments/" method="post">
   <input type="hidden" name="form" value="1">
   <input type="hidden" name="for" value="{$smarty.get.a}">
-  <input type="hidden" name="return" value="{if $check}/p/{$p->ID()}/payments/{else}/p/{$p->ID()}{/if}">
+  <input type="hidden" name="return" value="{if $check}/p/{$p->ID()}{else}/p/{$p->ID()}/payments/?v=mod&a=add{/if}">
   <input type="hidden" name="id" value="{if $check}{$check->ID()}{/if}">
+  <input type="hidden" name="projectid" value="{$p->ID()}">
+  <input type="hidden" name="session_path" value="/p/{$p->ID()}/payments/">
   <div class="box-header with-border">
     <h3 class="box-title">
       {if $smarty.get.a == 'add'}
@@ -16,14 +18,14 @@
     <div class="row">
       <div class="col-md-12">
         <label for="name">Díjbekérő megnevezése</label>
-        <input type="text" class="form-control" id="name" name="name" value="{if $check}{$check->data('name')}{/if}">
+        <input type="text" class="form-control" id="name" name="name" value="{if $check}{$check->data('name')}{else}{$form->getPost('name')}{/if}">
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-md-8">
         <label for="due_date">Határidő nap</label>
-        <input type="text" class="form-control datepicker" id="due_date" name="due_date" value="{if $check}{$check->data('due_date')|date_format:"%Y-%m-%d"}{/if}">
+        <input type="text" class="form-control datepicker" id="due_date" name="due_date" value="{if $check}{$check->data('due_date')|date_format:"%Y-%m-%d"}{else}{$form->getPost('due_date')}{/if}">
       </div>
       <div class="col-md-4">
         <label for="due_date_time">Határidő ideje</label>

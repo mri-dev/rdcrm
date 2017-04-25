@@ -1,6 +1,8 @@
 <?php
 namespace ProjectManager;
 
+use ExceptionManager\RedirectException;
+
 class Payment
 {
   private $db = null;
@@ -40,6 +42,56 @@ class Payment
     $this->payment = $result;
 
     return $this;
+  }
+
+  public function creator( $post )
+  {
+    extract($post);
+    $return_id = false;
+
+    $vars = array();
+
+    $vars['name'] = $name;
+    $vars['projectid'] = (int)$projectid;
+    $vars['due_date'] = $due_date." ".$due_date_time;
+
+    if($this->isCompleted()){
+      $vars['paid_date'] = $paid_date." ".$paid_date_time;
+    }
+    $vars['amount'] = (float)$amount;
+
+
+    // Exceptions
+    if (empty($vars['name'])) {
+      $this->error( 'A díjbekérőt kötelezően el kell nevezni.' );
+    }
+    if (empty($post['due_date'])) {
+      $this->error( 'A díjbekérő fizetési határidejét meg kell határozni.' );
+    }
+    if (empty($vars['amount']) || (float)$vars['amount'] <= 0) {
+      $this->error( 'A díjbekérő összegének nagyobbnak kell lennie, mint nulla.' );
+    }
+
+    if (isset($id) && !empty($id))
+    {
+      // Edit
+      $return_id = $id;
+
+      $this->db->update(
+        \ProjectManager\Payments::DBTABLE,
+        $vars,
+        sprintf("ID = %d", $id)
+      );
+    } else {
+      // Create
+      $insert_id = $this->db->insert(
+        \ProjectManager\Payments::DBTABLE,
+        $vars
+      );
+      $return_id = $insert_id;
+    }
+
+    $return_id;
   }
 
   public function Amount()
@@ -123,6 +175,11 @@ class Payment
 
     return $this->payment[$key];
   }
+
+  private function error( $msg )
+	{
+		throw new RedirectException( $msg, $_POST['form'], $_POST['return'], $_POST['session_path'] );
+	}
 
   public function __destruct()
   {

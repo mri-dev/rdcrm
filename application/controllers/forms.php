@@ -59,7 +59,21 @@ class forms extends Controller {
 					exit;
 				}
 			break;
-			case 'save': case 'create':
+			case 'edit': case 'add':
+
+				/* * /
+				echo '<pre>';
+				print_r($_POST);
+				echo '</pre>';
+				/* */
+				$return_url = $_POST['return'];
+
+				try {
+					$payment->creator( $_POST );
+					\PortalManager\Form::formDone( 'Sikeresen elmentette a változásokat.', false, $return_url );
+				} catch (RedirectException $e) {
+					$e->redirect();
+				}
 
 			break;
 		}
