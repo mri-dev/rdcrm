@@ -94,6 +94,24 @@ class Payment
     $return_id;
   }
 
+  public function delete()
+  {
+    if (!$this->ID()) {
+      return false;
+    }
+
+    $this->db->delete(\ProjectManager\Payments::DBTABLE, array("ID" => $this->ID()));
+  }
+
+  public function canControl( \PortalManager\User $user = null )
+  {
+    if(!$user->isAdmin() && !$user->isReferer()) {
+      return false;
+    }
+
+    return true;
+  }
+
   public function Amount()
   {
     return $this->payment['amount'];

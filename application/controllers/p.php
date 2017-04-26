@@ -22,8 +22,7 @@ class p extends Controller  {
 			}
 			$this->out('editor', $editor);
 
-			$this->projects = $this->Projects->getList($this->me);
-			$this->out('projects', $this->projects);
+			$this->out('projects', $this->getVar('projects'));
 
 			$project = new Project($this->gets[1], $this->me, $this->Projects->arg );
 			$this->out('p', $project);
@@ -40,7 +39,7 @@ class p extends Controller  {
 			if ( !empty($this->gets[2]) ) {
 				switch ($this->gets[2]) {
 					case 'payments':
-						if($_GET['v'] == 'mod' && $_GET['a'] == 'edit') {
+						if(($_GET['v'] == 'mod' && $_GET['a'] == 'edit') || $_GET['v'] == 'remove') {
 							$check = new Payment($_GET['id'], $this->Projects->arg );
 							if($check->ID()) {
 								$this->out('check', $check);

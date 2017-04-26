@@ -2,6 +2,7 @@
 namespace ProjectManager;
 
 use \ProjectManager\Project;
+use \ProjectManager\Payments;
 
 class Projects
 {
@@ -13,6 +14,10 @@ class Projects
 	public $smarty = null;
 	public $lang = array();
   public $arg = array();
+
+  private $projects = array();
+  public $total_payment_amount = 0;
+  public $paid_payment_amount = 0;
 
   public function __construct( $arg = array() )
   {
@@ -28,10 +33,9 @@ class Projects
   public function getList(\PortalManager\User $user = null, $arg = array() )
   {
     $qparam = array();
-    $projects = array();
 
     if (is_null($user)) {
-      return $projects;
+      return $this->projects;
     }
 
     $qry = "SELECT p.ID FROM ". self::DBTABLE." as p WHERE 1=1 ";
@@ -47,11 +51,33 @@ class Projects
 
     if($result) {
       foreach ($result as $r) {
-        $projects[] = new Project($r['ID'], $user, $this->arg);
+        $project = new Project($r['ID'], $user, $this->arg);
+
+        // In
+        $this->projects[] = $project;
       }
     }
 
-    return $projects;
+    return $this->projects;
+  }
+
+  public function getListPayments()
+  {
+    foreach ((array)$this->projects as $p) {
+      $ppayment = new Payments($p, $this->arg);
+      $ppayment->getList();
+
+      $this->total_payment_amount += $ppayment->total_amount;
+      $this->paid_payment_amount += $ppayment->paid_amount;
+    }
+
+    unset($p);
+    unset($ppayment);
+
+    return array(
+      'total' => $this->total_payment_amount,
+      'paid' => $this->paid_payment_amount
+    );
   }
 
   public function __destruct()
@@ -61,6 +87,7 @@ class Projects
 		$this->settings = null;
 		$this->smarty	= null;
 		$this->lang = null;
+		$this->projects = null;
   }
 
 }

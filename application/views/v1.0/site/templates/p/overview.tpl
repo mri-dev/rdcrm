@@ -26,7 +26,7 @@
       <tr>
         <td>{$payment->Name()}</td>
         <td>{$payment->Status(true)}</td>
-        <td><strong>{$payment->Amount()|number_format:0:"":" "} {$settings.valuta}</strong></td>
+        <td><strong>{$payment->Amount()|number_format:0:"":" "} {$settings.valuta}</strong> + ÁFA</td>
         <td>{$payment->DueDate()}</td>
         <td class="center">{$payment->PaidDate()}</td>
         {if $editor}
@@ -42,7 +42,7 @@
   <br>
   <div class="progress-group">
     <span class="progress-text">Befizetett díj - {($payments->paid_amount/($payments->total_amount/100))|number_format:0}%</span>
-    <span class="progress-number"><b>{$payments->paid_amount|number_format:0:"":" "} {$settings.valuta}</b> / {$payments->total_amount|number_format:0:"":" "} {$settings.valuta}</span>
+    <span class="progress-number"><b>{$payments->paid_amount|number_format:0:"":" "} {$settings.valuta} + ÁFA</b> / {$payments->total_amount|number_format:0:"":" "} {$settings.valuta} + ÁFA</span>
 
     <div class="progress md">
       <div class="progress-bar progress-bar-yellow" style="width: {$payments->paid_amount/($payments->total_amount/100)}%"></div>

@@ -57,7 +57,6 @@ class Payments
 
     return $payments;
   }
-
   public function __destruct()
   {
     $this->arg = null;

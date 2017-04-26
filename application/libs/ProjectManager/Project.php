@@ -84,6 +84,11 @@ class Project
     return $this->project['trello_id'];
   }
 
+  public function getTotalPayments()
+  {
+    return (float)$this->db->query("SELECT SUM(p.amount) FROM ".\ProjectManager\Payments::DBTABLE." as p WHERE p.projectid = ".$this->ID())->fetchColumn();
+  }
+
   public function __destruct()
   {
     $this->arg = null;

@@ -1,5 +1,17 @@
 @import 'settings';
 
+.center {
+  text-align: center;
+}
+
+.right{
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
 .login-page, .register-page{
   background: white;
 }
@@ -63,6 +75,40 @@ body.login-page {
 }
 .sidebar-form, .sidebar-menu>li.header{
   background: #f6f6f6;
+}
+
+.sidebar-form, .sidebar-menu>li{
+  .payments_amount{
+    font-weight: bold;
+    font-size: 0.8em;
+    color: $color-payment-overall;
+  }
+}
+
+.sidebar-form, .sidebar-menu>li.header.payments-overall{
+  background: $color-payment-overall;
+  color: lighten($color-payment-overall, 40%);
+  line-height: 1.3;
+
+  .title {
+    text-align: 1.3em;
+  }
+
+  .values {
+    font-size: 2.2em;
+    color: white;
+  }
+
+  .afa {
+    font-size: 0.8em;
+    color: lighten($color-payment-overall, 20%);
+  }
+
+  a {
+    color: white;
+    text-transform: none;
+    font-size: 0.9em;
+  }
 }
 body.sidebar-collapse {
   .sidebar-menu:hover {
@@ -133,7 +179,7 @@ body.sidebar-collapse {
 
   li.active {
     a{
-      background: $color-primary;
+      background: $color-grey;
       color: white;
     }
   }

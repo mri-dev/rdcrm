@@ -9,9 +9,6 @@ class home extends Controller  {
 			$this->user = $this->getVar('user');
 			$this->me = $this->getVar('me');
 
-			$this->projects = $this->Projects->getList($this->me);
-			$this->out('projects', $this->projects);
-
 			// SEO Információk
 			$SEO = null;
 			// Site info

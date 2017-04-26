@@ -100,6 +100,8 @@ class Controller
 
 				$this->out( 'user', $user);
 				$this->out( 'me', $me);
+				$this->out( 'projects', $this->Projects->getList($me));
+				$this->out( 'projects_payments', $this->Projects->getListPayments());
 
         if( $_GET['logout'] == '1' ) {
             $this->User->logout();

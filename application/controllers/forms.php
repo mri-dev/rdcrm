@@ -30,6 +30,7 @@ class forms extends Controller {
 		$return_url = $_POST['return'];
 
 		$payment = new Payment($_POST['id'], $this->Projects->arg );
+		$me = $this->getVar('me');
 
 		switch( $_POST['for'] )
 		{
@@ -60,13 +61,11 @@ class forms extends Controller {
 				}
 			break;
 			case 'edit': case 'add':
-
-				/* * /
-				echo '<pre>';
-				print_r($_POST);
-				echo '</pre>';
-				/* */
 				$return_url = $_POST['return'];
+
+				if (!$payment->canControl($me)) {
+					\PortalManager\Form::formError( 'Önnek nincs jogosultsága erre a műveletre.', false, $return_url );
+				}
 
 				try {
 					$payment->creator( $_POST );
@@ -75,6 +74,21 @@ class forms extends Controller {
 					$e->redirect();
 				}
 
+			break;
+
+			case 'remove':
+				$return_url = $_POST['return'];
+
+				if (!$payment->canControl($me)) {
+					\PortalManager\Form::formError( 'Önnek nincs jogosultsága erre a műveletre.', false, $return_url );
+				}
+
+				try {
+					$payment->delete();
+					\PortalManager\Form::formDone( 'Sikeresen törölte a díjbekérőt.', false, $return_url );
+				} catch (RedirectException $e) {
+					$e->redirect();
+				}
 			break;
 		}
 	}

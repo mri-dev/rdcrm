@@ -210,6 +210,23 @@ class Database
 		}
 	}
 
+	public function delete( $table, $where = array() )
+	{
+		$remove_qry = "DELETE FROM ".$table." WHERE ";
+
+		if (!$table || empty($where)) {
+			return false;
+		}
+
+		foreach ($where as $key => $value) {
+			$remove_qry .= $key . " = '$value' and ";
+		}
+
+		$remove_qry = rtrim($remove_qry, " and ") . ";";
+
+		return $this->db->query($remove_qry);
+	}
+
 	public function q($query, $arg = array()){
 		$query = trim($query);
 		$back 		= array();

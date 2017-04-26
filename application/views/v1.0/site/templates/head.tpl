@@ -176,10 +176,20 @@
       <ul class="sidebar-menu">
         {if $me->isAdmin()}
         <li class="header">Adminisztráció</li>
+        <li><a href="#"><i class="fa fa-gears"></i> Beállítások</a></li>
+        <li><a href="#"><i class="fa fa-plus-circle"></i> Új projekt</a></li>
         {/if}
-        <li class="header">{$lng_penzugyek}</li>
-        <li>
-          <a href="/payments/?group=project"><i class="fa fa-money"></i> {$lng_projekt} {$lng_koltsegek}</a>
+        <li class="header payments-overall center">
+          <div class="title">Projektek költségei</div>
+          <div class="values">
+            {$projects_payments.paid|number_format:0:"":" "} / {$projects_payments.total|number_format:0:"":" "}
+          </div>
+          <div class="afa">
+            + ÁFA
+          </div>
+          <div class="more">
+            <a href="/payments/?group=project">részletek</a>
+          </div>
         </li>
         <li class="header">{$lng_aktiv} {$lng_projektek}</li>
         {if !$projects}
@@ -193,7 +203,7 @@
                 <a href="/p/{$project->ID()}">{$project->Name()}</a>
               </div>
               <div class="author">
-                {$project->Author()}
+                {$project->Author()} <span class="payments_amount">{$project->getTotalPayments()|number_format:0:"":" "} + ÁFA</span>
               </div>
               <div class="desc">
                 {$project->Description()}
