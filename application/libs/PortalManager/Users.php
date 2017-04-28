@@ -1198,29 +1198,14 @@ class Users
 			}
 		}
 		$q .= "
-		ORDER BY f.regisztralt DESC
+		ORDER BY f.register_date DESC
 		";
 		$arg[multi] = "1";
 		extract($this->db->q($q, $arg));
 
 		$B = array();
 		foreach($data as $d){
-			switch($d['user_group']) {
-				case $this->settings['USERS_GROUP_EMPLOYER']:
-					$group = 'employer';
-				break;
-				case $this->settings['USERS_GROUP_EMPLOYER']:
-					$group = 'user';
-				break;
-			}
-			$d['url'] 			= '/accounts/'.$group.'/'.\Helper::makeSafeUrl($d['nev'],'_-'.$d['ID']);
-			$d['active_ads'] 	= $this->activeAds($d['ID'] );
-			$d[details] 		= $this->getAccountDetails( $d['ID'] );
-
-			// Logo
-			if( !file_exists(ltrim($d['logo'],"/")) ) {
-				$d['logo'] = false;
-			}
+			//$d[details] 		= $this->getAccountDetails( $d['ID'] );
 
 			$B[] = $d;
 		}

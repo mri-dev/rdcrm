@@ -13,6 +13,9 @@
         </div>
         <div class="box-body">
           <ul class="project-menu">
+            {if $me->isAdmin()}
+              <li class="{if $smarty.get.page == 'settings'}active{/if}"><a href="/p/{$p->ID()}/?page=settings"><i class="fa fa-gears"></i> Beállítások</a></li>
+            {/if}
             <li class="{if $smarty.get.page == ''}active{/if}"><a href="/p/{$p->ID()}/"><i class="fa fa-dashboard"></i>  {$lng_projekt} {$lng_osszesito}</a></li>
             <li class="{if $smarty.get.page == 'cards'}active{/if}"><a href="/p/{$p->ID()}/?page=cards"><i class="fa fa-trello"></i> Fejlesztői log</a></li>
             <li class="{if $smarty.get.page == 'chat'}active{/if}"><a href="/p/{$p->ID()}/?page=chat"><i class="fa fa-comments-o"></i> Kommunikáció</a></li>

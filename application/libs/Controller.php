@@ -98,6 +98,7 @@ class Controller
             header('Location: /welcome');
         }
 
+				$this->out( 'USERS', $this->User);
 				$this->out( 'user', $user);
 				$this->out( 'me', $me);
 				$this->out( 'projects', $this->Projects->getList($me));

@@ -173,12 +173,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar Menu -->
-      <ul class="sidebar-menu">
-        {if $me->isAdmin()}
-        <li class="header">Adminisztráció</li>
-        <li><a href="#"><i class="fa fa-gears"></i> Beállítások</a></li>
-        <li><a href="#"><i class="fa fa-plus-circle"></i> Új projekt</a></li>
-        {/if}
+      <ul class="sidebar-menu">        
         <li class="header payments-overall center">
           <div class="title">Projektek költségei</div>
           <div class="values">
@@ -191,6 +186,12 @@
             <a href="/payments/?group=project">részletek</a>
           </div>
         </li>
+
+        {if $me->isAdmin()}
+        <li class="header">Adminisztráció</li>
+        <li><a href="#"><i class="fa fa-gears"></i> Beállítások</a></li>
+        <li><a href="#"><i class="fa fa-plus-circle"></i> Új projekt</a></li>
+        {/if}
         <li class="header">{$lng_aktiv} {$lng_projektek}</li>
         {if !$projects}
         <li class="content no-project">

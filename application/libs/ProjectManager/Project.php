@@ -1,6 +1,7 @@
 <?php
 namespace ProjectManager;
 
+use ExceptionManager\RedirectException;
 
 class Project
 {
@@ -87,6 +88,18 @@ class Project
   public function getTotalPayments()
   {
     return (float)$this->db->query("SELECT SUM(p.amount) FROM ".\ProjectManager\Payments::DBTABLE." as p WHERE p.projectid = ".$this->ID())->fetchColumn();
+  }
+
+  public function data($key=false)
+  {
+    if(!$key) return $this->payment;
+
+    return $this->project[$key];
+  }
+
+  private function error( $msg )
+  {
+    throw new RedirectException( $msg, $_POST['form'], $_POST['return'], $_POST['session_path'] );
   }
 
   public function __destruct()
