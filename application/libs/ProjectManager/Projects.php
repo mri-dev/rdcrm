@@ -40,12 +40,18 @@ class Projects
 
     $qry = "SELECT p.ID FROM ". self::DBTABLE." as p WHERE 1=1 ";
 
-    $qry .= " and p.active = 1 ";
+    if ( !$user->isAdmin()) {
+      $qry .= " and p.active = 1 ";
+    }
 
     if ( $user->isAdmin() === false && $user->isReferer() === false) {
       $qry .= " and (p.user_id = :uid || :uid IN (SELECT pux.userid FROM ".self::DBXREFUSER." as pux WHERE pux.projectid = p.ID)) ";
       $qparam['uid'] = $user->getID();
     }
+
+    $qry .= " ORDER BY p.active DESC";
+
+
 
     $result = $this->db->squery($qry, $qparam)->fetchAll(\PDO::FETCH_ASSOC);
 
@@ -66,6 +72,8 @@ class Projects
     foreach ((array)$this->projects as $p) {
       $ppayment = new Payments($p, $this->arg);
       $ppayment->getList();
+
+      if(!$p->isActive()) continue;
 
       $this->total_payment_amount += $ppayment->total_amount;
       $this->paid_payment_amount += $ppayment->paid_amount;

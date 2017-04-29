@@ -199,9 +199,9 @@
         </li>
         {else}
           {foreach from=$projects item=project}
-          <li class="project-item {if $GETS[0] == 'p' && $GETS[1] == $project->ID()}active{/if}">
+          <li class="project-item {if $GETS[0] == 'p' && $GETS[1] == $project->ID()}active{/if} {if !$project->isActive()}inactive{/if}">
               <div class="name">
-                <a href="/p/{$project->ID()}">{$project->Name()}</a>
+                {if !$project->isActive()}<i title="Inaktív projekt / Archivált" class="fa fa-archive"></i>{/if} <a href="/p/{$project->ID()}">{$project->Name()}</a>
               </div>
               <div class="author">
                 <span class="payments_amount">{$project->getTotalPayments()|number_format:0:"":" "} + ÁFA</span>

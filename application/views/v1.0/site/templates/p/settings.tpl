@@ -9,7 +9,6 @@
   <h3 class="box-title"><i class="fa fa-inbox"></i> Projekt beállítások</h3>
 </div>
 <div class="box-body">
-
     <h3 style="margin: 4px 0;">Alapadatok</h3>
     <br>
     <div class="row">

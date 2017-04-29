@@ -125,6 +125,7 @@ body.sidebar-collapse {
   }
   &.active {
     border-left: 5px solid $color-primary;
+    border-right: 20px solid #efefef;
   }
   &.project-item{
     border-bottom: 5px solid #efefef;
@@ -155,6 +156,20 @@ body.sidebar-collapse {
 
     .url {
       font-size: 0.8em;
+    }
+
+    &.inactive {
+      font-size: 0.8em;
+      opacity: 0.4;
+      filter:alpha(opacity=40);
+      padding: 5px 10px;
+      background: #efefef;
+
+      .author .payments_amount,
+      .url,
+      .desc{
+        display: none;
+      }
     }
   }
 }
