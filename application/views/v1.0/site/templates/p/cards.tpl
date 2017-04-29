@@ -25,7 +25,7 @@ var authenticationFailure = function() {
 var loadLists = function(lists) {
   $.each(lists, function(i,list){
     Trello.get('/lists/'+list.id+"/cards", loadCards, error);
-    $('#trello-list-holder').append('<div class="list" data-list="'+list.id+'"><h2>'+list.name+'</h2><div class="cards" id="trello-list'+list.id+'-cards"></div></div>');
+    $('#trello-list-holder').append('<div class="list list-'+list.name+'" data-list="'+list.id+'"><h2>'+list.name+'</h2><div class="cards" id="trello-list'+list.id+'-cards"></div></div>');
   });
 };
 

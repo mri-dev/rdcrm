@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/plugins/datepicker/datepicker3.css">
 <link rel="stylesheet" href="/plugins/timepicker/bootstrap-timepicker.min.css">
 
-<link rel="stylesheet" href="/plugins/iCheck/minimal/red.css">
+<link rel="stylesheet" href="/plugins/iCheck/all.css">
 
 
 <!-- REQUIRED JS SCRIPTS -->

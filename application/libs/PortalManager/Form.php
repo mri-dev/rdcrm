@@ -77,7 +77,17 @@ class Form {
 			unset($_SESSION['_form_post']);
 
 			if( $msg ) {
-				$url = rtrim( $url, '/' ) . '/?response='.base64_encode( $form.'::success::'.$msg );
+				$url = rtrim( $url, '/' );
+				$xurl = explode('?',$url);
+				$ret_get = '';
+
+				if( count( $xurl ) > 1 ) {
+					$ret_get = end($xurl).'&';
+					$url = $xurl[0] .'?'. $ret_get;
+				} else {
+					$url .= '?';
+				}
+				$url = $url . 'response='.base64_encode( $form.'::success::'.$msg );
 			}
 
 			if( $anchor ) {
@@ -111,7 +121,17 @@ class Form {
 			unset($_SESSION['_form_post']);
 
 			if( $msg ) {
-				$url = rtrim( $url, '/' ) . '/?response='.base64_encode( $form.'::error::'.$msg );
+				$url = rtrim( $url, '/' );
+				$xurl = explode('?',$url);
+				$ret_get = '';
+
+				if( count( $xurl ) > 1 ) {
+					$ret_get = end($xurl).'&';
+					$url = $xurl[0] .'?'. $ret_get;
+				} else {
+					$url .= '?';
+				}
+				$url = $url . 'response='.base64_encode( $form.'::success::'.$msg );
 			}
 
 			if( $anchor ) {

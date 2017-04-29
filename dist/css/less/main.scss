@@ -26,7 +26,6 @@
 .btn-primary{
   background: $color-primary;
   border-color: darken($color-primary, 8%);
-
   &:hover {
     background: lighten($color-primary, 10%);
     border-color: lighten($color-primary, 8%);
@@ -81,7 +80,9 @@ body.login-page {
   .payments_amount{
     font-weight: bold;
     font-size: 0.8em;
-    color: $color-payment-overall;
+    background: $color-grey;
+    padding: 0 5px;
+    color: white;
   }
 }
 
@@ -130,7 +131,7 @@ body.sidebar-collapse {
     padding: 10px;
 
     .name{
-      font-size: 1.2em;
+      font-size: 1.5em;
       font-weight: bold;
       a{
         color: black;
@@ -143,6 +144,7 @@ body.sidebar-collapse {
     .author {
       font-size: 0.9em;
       color: #b3b3b3;
+      line-height: 1.6;
     }
 
     .desc {
@@ -204,6 +206,27 @@ body.sidebar-collapse {
       padding: 10px;
       font-size: 1.2em;
       color: black;
+    }
+
+    &.list-Feladatok {
+      h2{
+        color: white;
+        background: #949494;
+      }
+    }
+
+    &.list-Folyamatban {
+      h2{
+        color: white;
+        background: #ff940e;
+      }
+    }
+
+    &.list-Kész {
+      h2{
+        color: white;
+        background: #1fc51f;
+      }
     }
 
     &:first-child{

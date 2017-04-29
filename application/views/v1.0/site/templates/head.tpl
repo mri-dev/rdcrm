@@ -173,7 +173,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar Menu -->
-      <ul class="sidebar-menu">        
+      <ul class="sidebar-menu">
         <li class="header payments-overall center">
           <div class="title">Projektek költségei</div>
           <div class="values">
@@ -204,14 +204,17 @@
                 <a href="/p/{$project->ID()}">{$project->Name()}</a>
               </div>
               <div class="author">
-                {$project->Author()} <span class="payments_amount">{$project->getTotalPayments()|number_format:0:"":" "} + ÁFA</span>
+                <span class="payments_amount">{$project->getTotalPayments()|number_format:0:"":" "} + ÁFA</span>
+                {$project->Author()}
               </div>
               <div class="desc">
                 {$project->Description()}
               </div>
+              {if $project->SandboxURL()}
               <div class="url">
                 <i class="fa fa-globe"></i> <a href="{$project->SandboxURL()}" target="_blank">{$project->SandboxURL()}</a>
               </div>
+              {/if}
           </li>
           {/foreach}
         {/if}

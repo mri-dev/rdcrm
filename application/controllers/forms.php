@@ -8,6 +8,7 @@ use TransactionManager\Barion;
 use TransactionManager\Transaction;
 use ExceptionManager\RedirectException;
 use ProjectManager\Payment;
+use ProjectManager\Project;
 
 class forms extends Controller {
 	function __construct(){
@@ -86,6 +87,27 @@ class forms extends Controller {
 				try {
 					$payment->delete();
 					\PortalManager\Form::formDone( 'Sikeresen törölte a díjbekérőt.', false, $return_url );
+				} catch (RedirectException $e) {
+					$e->redirect();
+				}
+			break;
+		}
+	}
+
+	function projects()
+	{
+		$this->hidePatern = true;
+		$return_url = $_POST['return'];
+
+		$me = $this->getVar('me');
+		$project = new Project($_POST['projectid'], $me, $this->Projects->arg );
+
+		switch( $_POST['for'] )
+		{
+			case 'settings':
+				try {
+					$project->save($_POST);
+					\PortalManager\Form::formDone( 'Sikeresen elmentette a változásokat.', false, $return_url );
 				} catch (RedirectException $e) {
 					$e->redirect();
 				}

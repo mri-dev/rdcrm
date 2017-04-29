@@ -55,6 +55,38 @@ class Project
     return $this;
   }
 
+  public function save( $post )
+  {
+    extract($post);
+    $vars = array();
+
+    if (empty($name)) {
+      $this->error("Projekt elnevezése kötelező.");
+    }
+
+    if (empty($name)) {
+      $this->error("Projekt rövid leírását megadni kötelező.");
+    }
+
+    $vars['name'] = $name;
+    $vars['description'] = $description;
+    $vars['trello_id'] = (empty($trello_id)) ? NULL :$trello_id;
+    $vars['slack_id'] = (empty($slack_id)) ? NULL : $slack_id;
+    $vars['sandbox_url'] = (empty($sandbox_url)) ? NULL : $sandbox_url;
+
+    if (isset($user_id) && !empty($user_id)) {
+      $vars['user_id'] = (int)$user_id;
+    }
+
+    $vars['active'] = (isset($active)) ? 1 : 0;
+
+    $this->db->update(
+      \ProjectManager\Projects::DBTABLE,
+      $vars,
+      sprintf("ID = %d", $this->ID())
+    );
+  }
+
   public function ID()
   {
     return $this->project['ID'];
@@ -77,17 +109,30 @@ class Project
 
   public function SandboxURL()
   {
-    return $this->project['sandbox_url'];
+    $v = $this->project['sandbox_url'];
+    return ($v == '') ? false : $this->project['sandbox_url'];
   }
 
   public function TrelloBoardID()
   {
-    return $this->project['trello_id'];
+    $v = $this->project['trello_id'];
+    return ($v == '') ? false : $this->project['trello_id'];
+  }
+
+  public function SlackChannelID()
+  {
+    $v = $this->project['slack_id'];
+    return ($v == '') ? false : $this->project['slack_id'];
   }
 
   public function getTotalPayments()
   {
     return (float)$this->db->query("SELECT SUM(p.amount) FROM ".\ProjectManager\Payments::DBTABLE." as p WHERE p.projectid = ".$this->ID())->fetchColumn();
+  }
+
+  public function isActive()
+  {
+    return ($this->project['active'] == '1') ? true : false;
   }
 
   public function data($key=false)
