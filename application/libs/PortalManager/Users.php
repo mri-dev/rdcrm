@@ -400,6 +400,21 @@ class Users
 
 		$account_id = $data['ID'];
 
+		switch ($data['user_group']) {
+			case $this->settings['USERS_GROUP_USER']:
+				$data['user_group_text'] = 'Ügyfél';
+				$data['user_group_color'] = 'default';
+			break;
+			case $this->settings['USERS_GROUP_ADMIN']:
+				$data['user_group_text'] = 'Admin';
+				$data['user_group_color'] = 'danger';
+			break;
+			case $this->settings['USERS_GROUP_REFERER']:
+				$data['user_group_text'] = 'Referens';
+				$data['user_group_color'] = 'info';
+			break;
+		}
+
 		// Details
 		$det = $this->db->query("SELECT nev, ertek FROM ".self::TABLE_DETAILS_NAME." WHERE fiok_id = $account_id;")->fetchAll(\PDO::FETCH_ASSOC);
 
@@ -811,8 +826,6 @@ class Users
 		return $this->db->query( $q )->fetchColumn();
 	}
 
-
-
 	public function orderService( $acc_id, $package_id )
 	{
 		if( !$acc_id ) return false;
@@ -879,7 +892,6 @@ class Users
 		);
 
 	}
-
 
 	public function orderAdService( $acc_id, $package_id, $selected_day )
 	{

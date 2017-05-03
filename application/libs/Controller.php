@@ -36,12 +36,13 @@ class Controller
         $template_root = VIEW . $this->subfolder . 'templates/';
 
         $this->smarty = new Smarty();
-		$this->smarty->caching = false;
-		$this->smarty->cache_lifetime = 0;
-		$this->smarty->setTemplateDir(    $template_root );
-		$this->smarty->setCompileDir(     VIEW . $this->subfolder . 'templates_c/' );
-		$this->smarty->setConfigDir(      './settings' );
-		$this->smarty->setCacheDir(       VIEW . $this->subfolder . 'cache/' );
+				$this->smarty->caching = false;
+				$this->smarty->cache_lifetime = 0;
+				$this->smarty->setTemplateDir(    $template_root );
+				$this->smarty->setCompileDir(     VIEW . $this->subfolder . 'templates_c/' );
+				$this->smarty->setConfigDir(      './settings' );
+				$this->smarty->setCacheDir(       VIEW . $this->subfolder . 'cache/' );
+				setlocale(LC_ALL, 'hu_HU'); 
 
          $this->out( 'template_root', $template_root );
 

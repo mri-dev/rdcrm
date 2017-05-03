@@ -112,6 +112,15 @@ class forms extends Controller {
 					$e->redirect();
 				}
 			break;
+			case 'create':
+				try {
+					$id = $project->create($_POST);
+					$newproject = new Project($id, $me, $this->Projects->arg );
+					\PortalManager\Form::formDone( '<strong>'.$newproject->Name() . '</strong> project sikeresen létrehozva. Tekintse át az adatokat, majd tegye aktívvá a projektet.', false, '/p/'.$id );
+				} catch (RedirectException $e) {
+					$e->redirect();
+				}
+			break;
 		}
 	}
 

@@ -16,7 +16,6 @@ class Project
 
   public function __construct( $project_id = false, \PortalManager\User $user, $arg = array() )
   {
-    if(!$project_id) return false;
 
     $this->project_id = $project_id;
     $this->arg = $arg;
@@ -55,6 +54,39 @@ class Project
     return $this;
   }
 
+  public function create( $post )
+  {
+    extract($post);
+    $vars = array();
+
+    if (empty($name)) {
+      $this->error("Projekt elnevezése kötelező.");
+    }
+
+    if (empty($description)) {
+      $this->error("Projekt rövid leírását megadni kötelező.");
+    }
+
+    $vars['name'] = $name;
+    $vars['description'] = $description;
+    $vars['trello_id'] = (empty($trello_id)) ? NULL :$trello_id;
+    $vars['slack_id'] = (empty($slack_id)) ? NULL : $slack_id;
+    $vars['sandbox_url'] = (empty($sandbox_url)) ? NULL : $sandbox_url;
+
+    if (isset($user_id) && !empty($user_id)) {
+      $vars['user_id'] = (int)$user_id;
+    }
+
+    $vars['active'] = (isset($active)) ? 1 : 0;
+
+    $id = $this->db->insert(
+      \ProjectManager\Projects::DBTABLE,
+      $vars
+    );
+
+    return $id;
+  }
+
   public function save( $post )
   {
     extract($post);
@@ -64,7 +96,7 @@ class Project
       $this->error("Projekt elnevezése kötelező.");
     }
 
-    if (empty($name)) {
+    if (empty($description)) {
       $this->error("Projekt rövid leírását megadni kötelező.");
     }
 

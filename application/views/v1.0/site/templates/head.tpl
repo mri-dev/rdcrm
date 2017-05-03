@@ -189,8 +189,9 @@
 
         {if $me->isAdmin()}
         <li class="header">Adminisztráció</li>
-        <li><a href="/settings"><i class="fa fa-gears"></i> Beállítások</a></li>
         <li><a href="/new_project"><i class="fa fa-plus-circle"></i> Új projekt</a></li>
+        <li><a href="/settings"><i class="fa fa-gears"></i> Beállítások</a></li>
+        <li><a href="/users"><i class="fa fa-users"></i> Felhasználók</a></li>
         {/if}
         <li class="header">{$lng_aktiv} {$lng_projektek}</li>
         {if !$projects}

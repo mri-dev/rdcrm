@@ -13,6 +13,10 @@ class new_project extends Controller  {
 			$this->user = $this->getVar('user');
 			$this->me = $this->getVar('me');
 
+			if (!$this->me->isAdmin()) {
+				\Helper::reload('/');
+				exit;
+			}
 		
 			// Subpage
 			if ( !empty($this->gets[2]) ) {
