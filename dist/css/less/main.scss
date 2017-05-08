@@ -32,6 +32,24 @@
   }
 }
 
+a, a:link, a:visited {
+  color: $color-primary;
+}
+a:hover {
+  color: lighten($color-primary, 20%);
+}
+
+.editor-ai{
+  text-align: center;
+  i.fa-trash {
+    color: red;
+  }
+
+  i.fa-pencil {
+    color: #6fa650;
+  }
+}
+
 body.login-page {
   border-top: 20px solid $color-primary;
 }
@@ -316,6 +334,21 @@ body.sidebar-collapse {
           }
         }
       }
+    }
+  }
+}
+
+.no-data{
+  h4{
+    text-align: center;
+    font-size: 2em;
+    margin: 4% 0;
+    color: #9c9c9c;
+    i {
+      display: block;
+      margin: 10px;
+      font-size: 80px;
+      color: #cacaca;
     }
   }
 }

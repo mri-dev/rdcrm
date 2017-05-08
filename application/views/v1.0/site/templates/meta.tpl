@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="/plugins/timepicker/bootstrap-timepicker.min.css">
 
 <link rel="stylesheet" href="/plugins/iCheck/all.css">
+<link rel="stylesheet" href="/plugins/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" href="/plugins/fancybox/helpers/jquery.fancybox-buttons.css">
 
 
 <!-- REQUIRED JS SCRIPTS -->
@@ -34,6 +36,8 @@
 <script src="https://api.trello.com/1/client.js?key={$settings.TRELLO_API_KEY}&token=ba5ebbfb5b58922a170b0f26e26c2088ead945cbba9d570d88c490513a86b76e"></script>
 <script src="/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script src="/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="/plugins/fancybox/jquery.fancybox.js"></script>
+<script src="/plugins/tinymce/tinymce.min.js"></script>
 
 <!-- iCheck -->
 <script src="/plugins/iCheck/icheck.min.js"></script>
@@ -61,6 +65,39 @@
      checkboxClass: 'icheckbox_minimal-red',
      radioClass: 'iradio_minimal-red'
    });
+
+   tinymce.init({
+		    selector: "textarea:not(.no-editor)",
+		    editor_deselector : 'no-editor',
+		    theme: "modern",
+		    language: "hu_HU",
+		    plugins: [
+		         "advlist autolink link image lists charmap print preview hr anchor pagebreak autoresize",
+		         "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+		         "table contextmenu directionality emoticons paste textcolor responsivefilemanager fullscreen code"
+		   ],
+		   toolbar1: "undo redo | bold italic underline | fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+		   toolbar2: "| responsivefilemanager | link unlink anchor | image media |  print preview code ",
+		   image_advtab: true ,
+		   theme_advanced_resizing : true,
+		   external_filemanager_path:"/filemanager/",
+		   filemanager_title:"Responsive Filemanager" ,
+		   external_plugins: { "filemanager" : "/filemanager/plugin.min.js"}
+		 });
+
+   $('.iframe-btn').fancybox({
+    		maxWidth	: 800,
+    		maxHeight	: 600,
+    		fitToView	: false,
+    		width		: '70%',
+    		height		: '70%',
+    		autoSize	: false,
+    		closeClick	: false,
+    		openEffect	: 'none',
+    		closeEffect	: 'none',
+    		closeBtn 	: false,
+    		padding		: 0
+      });
 
   })
 </script>

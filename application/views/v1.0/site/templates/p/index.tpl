@@ -23,14 +23,14 @@
             {if $p->SlackChannelID()}
             <li class="{if $smarty.get.page == 'chat'}active{/if}"><a href="/p/{$p->ID()}/?page=chat"><i class="fa fa-comments-o"></i> Kommunikáció</a></li>
             {/if}
-            <li class="{if $smarty.get.page == 'docs'}active{/if}"><a href="/p/{$p->ID()}/?page=docs"><i class="fa fa-files-o"></i> Dokumentumok</a></li>
+            <li class="{if $smarty.get.page == 'docs'}active{/if}"><a href="/p/{$p->ID()}/?page=docs"><i class="fa fa-files-o"></i> Dokumentumok <span class="badge bg-red pull-right">{count($documents_list)}</span></a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="col-md-9">
       <div class="box box-solid">
-        {if $controlpages}
+        {if $controlpages && !empty($smarty.get.v)}
           {include file="$template_root/p/control/"|cat:$controlpages|cat:"-"|cat:$smarty.get.v|cat:".tpl"}
         {else}
           {if $smarty.get.page == ''}

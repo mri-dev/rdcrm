@@ -9,6 +9,7 @@ use TransactionManager\Transaction;
 use ExceptionManager\RedirectException;
 use ProjectManager\Payment;
 use ProjectManager\Project;
+use ProjectManager\Document;
 
 class forms extends Controller {
 	function __construct(){
@@ -123,6 +124,29 @@ class forms extends Controller {
 			break;
 		}
 	}
+
+	function documents()
+	{
+		$this->hidePatern = true;
+		$return_url = $_POST['return'];
+
+		$me = $this->getVar('me');
+		$document = new Document($_POST['id'], $this->Projects->arg );
+
+		switch( $_POST['for'] )
+		{
+			case 'add': case 'edit':
+				try {
+					$id = $document->creator($_POST);
+					$newproject = new Document($id, $this->Projects->arg );
+					\PortalManager\Form::formDone( '<strong>'.$newproject->Name() . '</strong> project sikeresen létrehozva. Tekintse át az adatokat, majd tegye aktívvá a projektet.', false, $return_url );
+				} catch (RedirectException $e) {
+					$e->redirect();
+				}
+			break;
+		}
+	}
+
 
 	/**
 	 * Regisztrációk

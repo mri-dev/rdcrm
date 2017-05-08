@@ -1,6 +1,8 @@
 <?
 use ProjectManager\Project;
 use ProjectManager\Payments;
+use ProjectManager\Documents;
+use ProjectManager\Document;
 use ProjectManager\Payment;
 use PortalManager\Form;
 
@@ -30,6 +32,11 @@ class p extends Controller  {
 			$this->out('payments', $payments);
 			$this->out('project_payments', $payments->getList());
 
+			$documents = new Documents($project->ID(), $this->Projects->arg );
+			$this->out('documents', $documents);
+			$this->out('documents_list', $documents->getList());
+
+
 			if( !$project->ID()) {
 				Helper::reload($this->settings['page_url']);
 				exit;
@@ -44,6 +51,24 @@ class p extends Controller  {
 							if($check->ID()) {
 								$this->out('check', $check);
 							}
+						}
+						$this->out('controlpages', $this->gets[2]);
+					break;
+					case 'documents':
+						if(($_GET['v'] == 'mod' && $_GET['a'] == 'edit') || $_GET['v'] == 'remove') {
+							$check = new Document($_GET['id'], $this->Projects->arg );
+
+							if($check->ID()) {
+								$this->out('check', $check);
+							} else {
+								Helper::reload('/p/'.$project->ID());
+							}
+						}
+						if($_GET['v'] == 'open' && !empty($_GET['doc'])) {
+							$check = new Document($_GET['doc'], $this->Projects->arg );
+							$fileurl = $check->PathURL();
+							$check->logFileOpen($this->me);
+							Helper::reload($fileurl);
 						}
 						$this->out('controlpages', $this->gets[2]);
 					break;
