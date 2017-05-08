@@ -45,7 +45,7 @@
     <span class="progress-number"><b>{$payments->paid_amount|number_format:0:"":" "} {$settings.valuta} + ÁFA</b> / {$payments->total_amount|number_format:0:"":" "} {$settings.valuta} + ÁFA</span>
 
     <div class="progress md">
-      <div class="progress-bar progress-bar-yellow" style="width: {$payments->paid_amount/($payments->total_amount/100)}%"></div>
+      <div class="progress-bar progress-bar-yellow" style="width: {($payments->paid_amount/($payments->total_amount/100))|replace:",":"."}%"></div>
     </div>
   </div>
   {else}

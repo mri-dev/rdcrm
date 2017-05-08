@@ -42,7 +42,7 @@ class Controller
 				$this->smarty->setCompileDir(     VIEW . $this->subfolder . 'templates_c/' );
 				$this->smarty->setConfigDir(      './settings' );
 				$this->smarty->setCacheDir(       VIEW . $this->subfolder . 'cache/' );
-				setlocale(LC_ALL, 'hu_HU'); 
+				setlocale(LC_ALL, 'hu_HU');
 
          $this->out( 'template_root', $template_root );
 
