@@ -41,7 +41,7 @@
     <div class="row">
       <div class="col-md-12">
         <label for="name">Projekt rövid leírása</label>
-        <textarea name="description" class="form-control" id="description">{if $p}{$p->data('description')}{else}{$form->getPost('name')}{/if}</textarea>
+        <textarea name="description" class="form-control no-editor" id="description">{if $p}{$p->data('description')}{else}{$form->getPost('name')}{/if}</textarea>
       </div>
     </div>
     <br>

@@ -162,55 +162,70 @@ body.sidebar-collapse .sidebar-menu:hover {
   position: absolute;
   background: white;
 }
+/* line 138, less/main.scss */
+body.sidebar-collapse li.project-item {
+  display: none;
+}
 
-/* line 139, less/main.scss */
+/* line 143, less/main.scss */
 .sidebar-menu > li {
   border-left: 5px solid transparent;
+  margin: 0;
 }
-/* line 141, less/main.scss */
+/* line 148, less/main.scss */
+.sidebar-menu > li:not(.project-item) a {
+  font-size: 20px;
+  padding: 12px 5px 12px 12px;
+}
+/* line 152, less/main.scss */
+.sidebar-menu > li:not(.project-item) a i {
+  margin-right: 8px;
+  text-align: center;
+}
+/* line 159, less/main.scss */
 .sidebar-menu > li.header {
   text-transform: uppercase;
 }
-/* line 144, less/main.scss */
+/* line 162, less/main.scss */
 .sidebar-menu > li.active {
-  border-left: 5px solid #9d1c20;
-  border-right: 20px solid #efefef;
+  border-left: 20px solid #9d1c20;
+  border-right: 10px solid #efefef;
 }
-/* line 148, less/main.scss */
+/* line 166, less/main.scss */
 .sidebar-menu > li.project-item {
   border-bottom: 5px solid #efefef;
   padding: 10px;
 }
-/* line 152, less/main.scss */
+/* line 170, less/main.scss */
 .sidebar-menu > li.project-item .name {
   font-size: 1.5em;
   font-weight: bold;
 }
-/* line 155, less/main.scss */
+/* line 173, less/main.scss */
 .sidebar-menu > li.project-item .name a {
   color: black;
 }
-/* line 157, less/main.scss */
+/* line 175, less/main.scss */
 .sidebar-menu > li.project-item .name a:hover {
   color: #9d1c20;
 }
-/* line 163, less/main.scss */
+/* line 181, less/main.scss */
 .sidebar-menu > li.project-item .author {
   font-size: 0.9em;
   color: #b3b3b3;
   line-height: 1.6;
 }
-/* line 169, less/main.scss */
+/* line 187, less/main.scss */
 .sidebar-menu > li.project-item .desc {
   font-size: 0.9;
   color: #555555;
   margin-bottom: 8px;
 }
-/* line 175, less/main.scss */
+/* line 193, less/main.scss */
 .sidebar-menu > li.project-item .url {
   font-size: 0.8em;
 }
-/* line 179, less/main.scss */
+/* line 197, less/main.scss */
 .sidebar-menu > li.project-item.inactive {
   font-size: 0.8em;
   opacity: 0.4;
@@ -218,47 +233,47 @@ body.sidebar-collapse .sidebar-menu:hover {
   padding: 5px 10px;
   background: #efefef;
 }
-/* line 188, less/main.scss */
+/* line 206, less/main.scss */
 .sidebar-menu > li.project-item.inactive .author .payments_amount,
 .sidebar-menu > li.project-item.inactive .url,
 .sidebar-menu > li.project-item.inactive .desc {
   display: none;
 }
 
-/* line 195, less/main.scss */
+/* line 213, less/main.scss */
 .project-menu {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 200, less/main.scss */
+/* line 218, less/main.scss */
 .project-menu li {
   padding: 4px 0;
 }
-/* line 203, less/main.scss */
+/* line 221, less/main.scss */
 .project-menu a {
   display: block;
   padding: 10px;
   background: #f2f2f2;
   color: black;
 }
-/* line 209, less/main.scss */
+/* line 227, less/main.scss */
 .project-menu a i {
   width: 25px;
   text-align: center;
 }
-/* line 216, less/main.scss */
+/* line 234, less/main.scss */
 .project-menu li.active a {
   background: #2f323a;
   color: white;
 }
 
-/* line 223, less/main.scss */
+/* line 241, less/main.scss */
 .trello-lists {
   display: flex;
   flex-wrap: nowrap;
 }
-/* line 226, less/main.scss */
+/* line 244, less/main.scss */
 .trello-lists .list {
   border: 2px solid #f1f1f1;
   border-collapse: collapse;
@@ -267,7 +282,7 @@ body.sidebar-collapse .sidebar-menu:hover {
   flex-basis: calc(100%/3);
   padding: 0 10px;
 }
-/* line 234, less/main.scss */
+/* line 252, less/main.scss */
 .trello-lists .list h2 {
   margin: 0;
   background: #d1d1d1;
@@ -276,52 +291,58 @@ body.sidebar-collapse .sidebar-menu:hover {
   padding: 10px;
   font-size: 1.2em;
   color: black;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
-/* line 245, less/main.scss */
+/* line 266, less/main.scss */
 .trello-lists .list.list-Feladatok h2 {
   color: white;
   background: #949494;
 }
-/* line 252, less/main.scss */
+/* line 273, less/main.scss */
 .trello-lists .list.list-Folyamatban h2 {
   color: white;
   background: #ff940e;
 }
-/* line 259, less/main.scss */
+/* line 280, less/main.scss */
 .trello-lists .list.list-Kész h2 {
   color: white;
   background: #1fc51f;
 }
-/* line 265, less/main.scss */
+/* line 286, less/main.scss */
 .trello-lists .list:first-child {
   border-left: none;
 }
-/* line 268, less/main.scss */
+/* line 289, less/main.scss */
 .trello-lists .list:last-child {
   border-right: none;
 }
-/* line 272, less/main.scss */
+/* line 293, less/main.scss */
 .trello-lists .list .cards .card {
-  border: 1px dashed #c3c3c3;
+  border: 1px solid #e4e4e4;
   padding: 8px;
   margin: 5px 0;
-  background: #f6f6f6;
+  background: #ffffff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
-/* line 278, less/main.scss */
+/* line 302, less/main.scss */
 .trello-lists .list .cards .card .title {
   font-weight: bold;
   color: black;
 }
-/* line 283, less/main.scss */
+/* line 307, less/main.scss */
 .trello-lists .list .cards .card .due {
   font-size: 0.8em;
   color: #888888;
 }
-/* line 287, less/main.scss */
+/* line 311, less/main.scss */
 .trello-lists .list .cards .card .due.duesuccess {
   color: green;
 }
-/* line 292, less/main.scss */
+/* line 316, less/main.scss */
 .trello-lists .list .cards .card .desc {
   border-top: 1px solid #cfcfcf;
   margin-top: 4px;
@@ -329,11 +350,11 @@ body.sidebar-collapse .sidebar-menu:hover {
   font-size: 0.8em;
   color: #888888;
 }
-/* line 300, less/main.scss */
+/* line 324, less/main.scss */
 .trello-lists .list .cards .card .labels {
   margin-top: 4px;
 }
-/* line 302, less/main.scss */
+/* line 326, less/main.scss */
 .trello-lists .list .cards .card .labels .label {
   margin: 3px;
   font-weight: normal;
@@ -343,37 +364,37 @@ body.sidebar-collapse .sidebar-menu:hover {
   line-height: 1;
   padding: 2px 10px;
 }
-/* line 314, less/main.scss */
+/* line 338, less/main.scss */
 .trello-lists .list .cards .card .checklists .checklist {
   margin: 4px 0;
   border-top: 5px solid #a7a7a7;
   background: #ffffff;
   padding: 8px;
 }
-/* line 320, less/main.scss */
+/* line 344, less/main.scss */
 .trello-lists .list .cards .card .checklists .checklist h3 {
   margin: 0 0 5px 0;
   color: black;
   font-size: 1.3em;
   font-weight: bold;
 }
-/* line 327, less/main.scss */
+/* line 351, less/main.scss */
 .trello-lists .list .cards .card .checklists .checklist .check-item {
   color: orange;
 }
-/* line 330, less/main.scss */
+/* line 354, less/main.scss */
 .trello-lists .list .cards .card .checklists .checklist .check-item.complete {
   color: green;
 }
 
-/* line 342, less/main.scss */
+/* line 366, less/main.scss */
 .no-data h4 {
   text-align: center;
   font-size: 2em;
   margin: 4% 0;
   color: #9c9c9c;
 }
-/* line 347, less/main.scss */
+/* line 371, less/main.scss */
 .no-data h4 i {
   display: block;
   margin: 10px;

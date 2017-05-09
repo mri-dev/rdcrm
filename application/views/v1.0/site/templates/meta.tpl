@@ -74,15 +74,15 @@
 		    plugins: [
 		         "advlist autolink link image lists charmap print preview hr anchor pagebreak autoresize",
 		         "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
-		         "table contextmenu directionality emoticons paste textcolor responsivefilemanager fullscreen code"
+		         "table contextmenu directionality emoticons paste textcolor filemanager fullscreen code"
 		   ],
 		   toolbar1: "undo redo | bold italic underline | fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
-		   toolbar2: "| responsivefilemanager | link unlink anchor | image media |  print preview code ",
+		   toolbar2: "| filemanager | link unlink anchor | image media |  print preview code ",
 		   image_advtab: true ,
 		   theme_advanced_resizing : true,
 		   external_filemanager_path:"/filemanager/",
 		   filemanager_title:"Responsive Filemanager" ,
-		   external_plugins: { "filemanager" : "/filemanager/plugin.min.js"}
+		   external_plugins: { "filemanager" : "/plugins/tinymce/plugins/filemanager/plugin.min.js"}
 		 });
 
    $('.iframe-btn').fancybox({

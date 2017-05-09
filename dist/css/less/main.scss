@@ -134,16 +134,34 @@ body.sidebar-collapse {
     position: absolute;
     background: white;
   }
+
+  li.project-item {
+    display: none;
+  }
 }
 
 .sidebar-menu>li{
   border-left: 5px solid transparent;
+  margin: 0;
+
+    &:not(.project-item){
+    a {
+      font-size: 20px;
+      padding: 12px 5px 12px 12px;
+
+      i {
+        margin-right: 8px;
+        text-align: center;
+      }
+
+    }
+  }
   &.header {
     text-transform: uppercase;
   }
   &.active {
-    border-left: 5px solid $color-primary;
-    border-right: 20px solid #efefef;
+    border-left: 20px solid $color-primary;
+    border-right: 10px solid #efefef;
   }
   &.project-item{
     border-bottom: 5px solid #efefef;
@@ -239,6 +257,9 @@ body.sidebar-collapse {
       padding: 10px;
       font-size: 1.2em;
       color: black;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
     }
 
     &.list-Feladatok {
@@ -270,10 +291,13 @@ body.sidebar-collapse {
     }
     .cards {
       .card {
-        border: 1px dashed #c3c3c3;
+        border: 1px solid #e4e4e4;
         padding: 8px;
         margin: 5px 0;
-        background: #f6f6f6;
+        background: #ffffff;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
 
         .title {
           font-weight: bold;
