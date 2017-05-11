@@ -109,7 +109,7 @@ class User
 
 	public function getName()
 	{
-		return $this->user['data']['nev'];
+		return $this->user['data']['name'];
 	}
 
 	public function getID()

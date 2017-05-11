@@ -1,4 +1,7 @@
 <section class="content-header">
+  <div class="pull-right">
+    <a href="/users/add" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> új felhasználó</a>
+  </div>
   <h1>Felhasználók</h1>
 </section>
 <section class="content">
@@ -24,7 +27,7 @@
               {foreach from=$userlist.data item=u}
               {assign var="udata" value=$USERS->getData($u.email)}
               <tr>
-                <td>{$u.name}</td>
+                <td><a href="/users/edit/{$u.ID}">{$u.name}</a></td>
                 <td>
                   <span class="label label-{$udata.user_group_color}">{$udata.user_group_text}</span>
                 </td>

@@ -200,97 +200,15 @@ class forms extends Controller {
 
 		$return_url = $_POST['return'];
 
-
 		switch( $_POST['for'] ) {
-			// Munkavállaló alapadatok módosítása
-			case 'settings_basic':
-				// Objects
-		        $lang = array_merge (
-		            $this->lang->loadLangText( 'class/users', true ),
-		            $this->lang->loadLangText( 'mails', true )
-		        );
-
-		        $user = $this->getVar('user');
+			case 'creator':
 
 				try {
-					$msg = $this->User->change( $user['data']['ID'], $user['data']['user_group'], $_POST['data'], $_POST['details'] );
-					\PortalManager\Form::formDone( $msg, false, '/user/settings/', 'basic' );
+					$msg = $this->User->autocreator( $_POST );
+					\PortalManager\Form::formDone( $msg, false, $return_url);
 				} catch (RedirectException $e) {
 					$e->redirect();
 				}
-			break;
-			// Munkavállaló jelszó csere
-			case 'settings_password':
-
-		        $lang = array_merge (
-		            $this->lang->loadLangText( 'class/users', true ),
-		            $this->lang->loadLangText( 'mails', true )
-		        );
-
-		        // Users class
-				$users 	= $this->User;
-				$user 	= $this->getVar('user');
-
-		        /* */
-				try {
-					$users->changePassword( $user['data']['ID'], $_POST['data'] );
-					\PortalManager\Form::formDone( $lang['lng_users_form_password_success_change'], false, '/user/settings/', 'password' );
-				} catch (RedirectException $e) {
-					$e->redirect( 'password' );
-				}
-				/* */
-			break;
-			// Munkavállaló Europass önéletrajz
-			case 'europass':
-
-		        $lang = array_merge (
-		            $this->lang->loadLangText( 'class/users', true ),
-		            $this->lang->loadLangText( 'mails', true )
-		        );
-
-		        // Users class
-				$users 	= $this->User;
-				$user 	= $this->getVar('user');
-
-		        /* */
-				try {
-					$users->changeEuropass( $user['data']['ID'], $_FILES['xml'] );
-					\PortalManager\Form::formDone( $lang['lng_users_europass_success_change'], false, '/user/settings/' );
-				} catch (RedirectException $e) {
-					$e->redirect( );
-				}
-				/* */
-			break;
-
-			// Munkavállaló jelentkezés egy munkára
-			case 'app_for_job':
-
-		        $lang = array_merge (
-		            $this->lang->loadLangText( 'class/ad', true ),
-		            $this->lang->loadLangText( 'mails', true )
-		        );
-
-		        // Users class
-				$users 	= $this->User;
-				$user 	= $this->getVar('user');
-
-		        /* */
-				try {
-					$ad = new Ad( $_POST['id'], array(
-						'db' => $this->db,
-						'settings' => $this->settings,
-						'admin' => true,
-						'lang' => $lang,
-						'smarty' => $this->smarty
-					));
-
-					$ad->applicantForJob( $user['data']['ID'], $_POST['data']['message'] );
-
-					\PortalManager\Form::formDone( $lang['lng_applicant_form_apped'], false, '/user/applicant_for_job/' );
-				} catch (RedirectException $e) {
-					$e->redirect();
-				}
-				/* */
 			break;
 		}
 	}

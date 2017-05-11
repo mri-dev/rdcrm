@@ -1,5 +1,6 @@
 <?
 use ProjectManager\Project;
+use PortalManager\User;
 use PortalManager\Form;
 
 class users extends Controller  {
@@ -34,10 +35,25 @@ class users extends Controller  {
 			$this->out( 'SEOSERVICE', $SEO );
 		}
 
+		public function account()
+		{
+			$this->temp = '/'.__FUNCTION__;
+
+			if( !$this->me->isAdmin() ) {
+				\Helper::reload('/');
+			}
+
+			if($_GET['action'] == 'edit') {
+				$user = new User($_GET['id'], $this->Projects->arg);
+				$this->out('edituser', $user);
+			}
+
+		}
+
 		function __destruct(){
 			// RENDER OUTPUT
 			parent::bodyHead();					# HEADER
-			$this->displayView( __CLASS__.'/index', true );		# CONTENT
+			$this->displayView( __CLASS__.$this->temp.'/index', true );		# CONTENT
 			parent::__destruct();				# FOOTER
 		}
 	}

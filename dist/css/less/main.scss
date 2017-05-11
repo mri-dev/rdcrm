@@ -39,6 +39,10 @@ a:hover {
   color: lighten($color-primary, 20%);
 }
 
+a.btn-success {
+  color:white;
+}
+
 .editor-ai{
   text-align: center;
   i.fa-trash {

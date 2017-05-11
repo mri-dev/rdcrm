@@ -1,13 +1,20 @@
 AddDefaultCharset UTF-8
 Options -Indexes
+Options +FollowSymlinks
 RewriteEngine On
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^users/add$ index.php?tag=users/account/&action=create [QSA,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^users/edit/(.+)$ index.php?tag=users/account/&action=edit&id=$1 [QSA,L]
 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ index.php?tag=$1 [QSA,L]
-
 
 <ifModule mod_gzip.c>
 	mod_gzip_on Yes

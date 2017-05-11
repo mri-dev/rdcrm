@@ -2,12 +2,12 @@
 class Start
 {
 	function __construct(){
-		
+
 		$url = Helper::GET();
-		
+
 		$openControl = null;
-		
-		if (count($url) == 0)
+
+		if (count($url) == 0 || $url[0] == 'index.php')
 		{
 			$openControl = 'home';
 		}
@@ -20,7 +20,7 @@ class Start
 		 * PHPIDS
 		 *  Detect hacking
 		 * */
-		if (substr( $_GET['tag'], 0, 2 ) !== "cp" ) 
+		if (substr( $_GET['tag'], 0, 2 ) !== "cp" )
 		{
 			/*
 			$filters = new \Expose\FilterCollection();
@@ -37,7 +37,7 @@ class Start
 			$manager->setException('POST.details');
 			$manager->setException('POST.href');
 			$manager->setException('POST.data.description');
-			
+
 
 			$manager->run($data);
 
@@ -45,16 +45,18 @@ class Start
 			if ($reports)
 			{
 				include VIEW."site/templates/hack_report.tpl";
-				die();	
+				die();
 			}
 			*/
 		}
-		
+
+
+
 
 		if(!file_exists(CONTROL . $openControl . '.php')){
 			$openControl = "PageNotFound";
 		}
-		
+
 		require CONTROL . $openControl . '.php';
 
 		$control = new $openControl();
@@ -63,9 +65,9 @@ class Start
 				$control->fnTemp = $url[1];
 				$control->$url[1]();
 			}
-		}			
+		}
 	}
-	
+
 }
 
 ?>

@@ -28,7 +28,7 @@ class Controller
 			$this->subfolder = $arg['root'].'/';
 		}
 
-        /**
+    /**
 		* CORE
 		**/
 		// SMARTY

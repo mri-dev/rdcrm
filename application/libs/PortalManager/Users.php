@@ -63,6 +63,11 @@ class Users
 		$this->getUser();
 	}
 
+	public function autocreator($post)
+	{
+		extract($post);
+	}
+
 	function get( $arg = array() )
 	{
 		$ret 			= array();
