@@ -182,9 +182,6 @@
           <div class="afa">
             + ÁFA
           </div>
-          <div class="more">
-            <a href="/payments/?group=project">részletek</a>
-          </div>
         </li>
 
         {if $me->isAdmin()}

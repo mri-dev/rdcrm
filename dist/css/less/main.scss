@@ -62,8 +62,8 @@ body.login-page {
 }
 .main-header .logo{
   width: $sidebar-width;
-  color: black;
-  background: #d1d1d1;
+  color: darken($color-primary, 20%);
+  background: darken($color-primary, 10%);
 }
 .main-header .navbar{
   background: $color-primary;
@@ -77,7 +77,10 @@ body.login-page {
 .content-wrapper, .right-side{
   background: #efefef;
 }
-
+ .main-footer{
+  background: #c7c7c7;
+  color: #737272;
+ }
 .sidebar-menu, .main-sidebar .user-panel, .sidebar-menu>li.header{
   a{
     color: $color-primary;
@@ -375,4 +378,16 @@ body.sidebar-collapse {
       color: #cacaca;
     }
   }
+
+  &.smaller{
+    font-size: 0.75em;
+    h4{
+      i{
+        font-size: 48px;
+      }
+    }
+  }
+}
+table.smaller-table *{
+  font-size: 0.98em;
 }

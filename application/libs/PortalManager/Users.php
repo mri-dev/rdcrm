@@ -431,7 +431,6 @@ class Users
 
 		$user_group = ($data['user_group'] == '') ? false: (int)$data['user_group'];
 
-
 		if( empty($data['email']) || empty($data['pw'])) {
 			$this->error( $this->lang['lng_form_missing_details'] );
 		}
@@ -463,7 +462,7 @@ class Users
 			"user_group = ".$user_group." and email = '".$data[email]."'"
 		);
 
-		$data 	= $this->getData( $data[email], 'email', $user_group  );
+		$data = $this->getData( $data[email], 'email', $user_group  );
 
 		\Session::set( 'loginsession_id', $data[ID] );
 		\Session::set( 'loginsession_ug', $user_group );

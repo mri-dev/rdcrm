@@ -183,7 +183,7 @@ class forms extends Controller {
 			case 'user':
 				try {
 					$users->login( $_POST );
-					\PortalManager\Form::formDone( 'Sikeresen bejelentkezett!', false, $return_url );
+					\PortalManager\Form::formDone( 'Sikeresen bejelentkezett!', false, '/' );
 				} catch (RedirectException $e) {
 					$e->redirect();
 				}

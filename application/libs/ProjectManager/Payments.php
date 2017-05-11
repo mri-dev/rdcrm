@@ -31,16 +31,45 @@ class Payments
     $qparam = array();
     $payments = array();
 
-    if (is_null($this->project)) {
-      return $payments;
+    $qry = "SELECT
+      p.ID,
+      p.amount,
+      p.completed
+    FROM ". self::DBTABLE." as p
+    LEFT OUTER JOIN ".\ProjectManager\Projects::DBTABLE." as pr ON pr.ID = p.projectid
+    WHERE 1=1 ";
+
+    if (!is_null($this->project)) {
+      $qry .= " and p.projectid = :pid";
+      $qparam['pid'] = $this->project->ID();
     }
 
-    $qry = "SELECT p.ID, p.amount, p.completed FROM ". self::DBTABLE." as p WHERE 1=1 ";
+    if (isset($arg['onlyactive']) && $arg['onlyactive'] === true) {
+      $qry .= " and pr.active = 1";
+    }
 
-    $qry .= " and p.projectid = :pid";
-    $qparam['pid'] = $this->project->ID();
+    if (isset($arg['onlypaid']) && $arg['onlypaid'] === true) {
+      $qry .= " and p.paid_date IS NOT NULL ";
+    }
 
-    $qry .= " ORDER BY p.completed ASC, p.due_date ASC ";
+    if (isset($arg['usercan'])) {
+      $qry .= " and (pr.user_id = :uid || :uid IN (SELECT pxu.userid FROM ".\ProjectManager\Projects::DBXREFUSER." as pxu WHERE pxu.projectid = p.projectid))";
+      $qparam['uid'] = $arg['usercan'];
+    }
+
+    if (isset($arg['deadlinein'])) {
+      $qry .= " and (datediff(p.due_date, now()) < ".$arg['deadlinein']." and p.paid_date IS NULL)";
+    }
+
+    if (isset($arg['order'])) {
+      $qry .= " ORDER BY ".$arg['order'];
+    } else {
+      $qry .= " ORDER BY p.completed ASC, p.due_date ASC ";
+    }
+
+
+
+    //echo $qry . "<br>";
 
     $result = $this->db->squery($qry, $qparam)->fetchAll(\PDO::FETCH_ASSOC);
 

@@ -31,8 +31,10 @@ class Payment
   {
     $qparam = array();
     $qry = "SELECT
-      p.*
+      p.*,
+      pr.name as project_name
     FROM ". \ProjectManager\Payments::DBTABLE." as p
+    LEFT OUTER JOIN ".\ProjectManager\Projects::DBTABLE." as pr ON pr.ID = p.projectid
     WHERE 1=1 and p.ID = :id ";
 
     $qparam['id'] = $this->payment_id;
@@ -150,6 +152,11 @@ class Payment
     }
 
     return $status;
+  }
+
+  public function ProjectName()
+  {
+    return $this->payment['project_name'];
   }
 
   public function ProjectID()

@@ -1,4 +1,6 @@
 <?
+use \ProjectManager\Payments;
+
 class home extends Controller  {
 		private $user = false;
 		function __construct(){
@@ -8,6 +10,28 @@ class home extends Controller  {
 
 			$this->user = $this->getVar('user');
 			$this->me = $this->getVar('me');
+
+			$payments = new Payments(null, $this->Projects->arg);
+
+			// 15 napon belül befizetendő díbekérők
+			$payments_arg = array();
+			if (!$this->me->isAdmin() && !$this->me->isReferer()) {
+				$payments_arg['usercan'] = $this->me->getID();
+			}
+			$payments_arg['onlyactive'] = true;
+			$payments_arg['deadlinein'] = 15;
+			$payments_arg['order'] = "due_date ASC";
+			$this->out('actual_payments', $payments->getList($payments_arg));
+
+			// Befizetett díjbekérők
+			$payments_arg = array();
+			if (!$this->me->isAdmin() && !$this->me->isReferer()) {
+				$payments_arg['usercan'] = $this->me->getID();
+			}
+			$payments_arg['onlyactive'] = true;
+			$payments_arg['onlypaid'] = true;
+			$payments_arg['order'] = "paid_date DESC";
+			$this->out('paid_payments', $payments->getList($payments_arg));
 
 			// SEO Információk
 			$SEO = null;
