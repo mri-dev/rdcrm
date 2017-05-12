@@ -299,8 +299,9 @@ body.sidebar-collapse {
     .cards {
       .card {
         border: 1px solid #e4e4e4;
+        border-bottom: 3px solid #c0c0c0;
         padding: 8px;
-        margin: 5px 0;
+        margin: 10px 0;
         background: #ffffff;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
@@ -309,6 +310,8 @@ body.sidebar-collapse {
         .title {
           font-weight: bold;
           color: black;
+          font-size: 1.2em;
+          line-height: 1;
         }
 
         .due {
@@ -344,14 +347,14 @@ body.sidebar-collapse {
         .checklists{
           .checklist{
             margin: 4px 0;
-            border-top: 5px solid #a7a7a7;
+            border-left: 3px solid #a7a7a7;
             background: #ffffff;
-            padding: 8px;
+            padding: 0 8px;
 
             h3 {
-              margin: 0 0 5px 0;
-              color: black;
-              font-size: 1.3em;
+              margin: 0 0 8px 0;
+              color: #c1c1c1;
+              font-size: 0.9em;
               font-weight: bold;
             }
 

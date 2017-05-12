@@ -332,28 +332,31 @@ body.sidebar-collapse li.project-item {
 /* line 300, less/main.scss */
 .trello-lists .list .cards .card {
   border: 1px solid #e4e4e4;
+  border-bottom: 3px solid #c0c0c0;
   padding: 8px;
-  margin: 5px 0;
+  margin: 10px 0;
   background: #ffffff;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 309, less/main.scss */
+/* line 310, less/main.scss */
 .trello-lists .list .cards .card .title {
   font-weight: bold;
   color: black;
+  font-size: 1.2em;
+  line-height: 1;
 }
-/* line 314, less/main.scss */
+/* line 317, less/main.scss */
 .trello-lists .list .cards .card .due {
   font-size: 0.8em;
   color: #888888;
 }
-/* line 318, less/main.scss */
+/* line 321, less/main.scss */
 .trello-lists .list .cards .card .due.duesuccess {
   color: green;
 }
-/* line 323, less/main.scss */
+/* line 326, less/main.scss */
 .trello-lists .list .cards .card .desc {
   border-top: 1px solid #cfcfcf;
   margin-top: 4px;
@@ -361,11 +364,11 @@ body.sidebar-collapse li.project-item {
   font-size: 0.8em;
   color: #888888;
 }
-/* line 331, less/main.scss */
+/* line 334, less/main.scss */
 .trello-lists .list .cards .card .labels {
   margin-top: 4px;
 }
-/* line 333, less/main.scss */
+/* line 336, less/main.scss */
 .trello-lists .list .cards .card .labels .label {
   margin: 3px;
   font-weight: normal;
@@ -375,53 +378,53 @@ body.sidebar-collapse li.project-item {
   line-height: 1;
   padding: 2px 10px;
 }
-/* line 345, less/main.scss */
+/* line 348, less/main.scss */
 .trello-lists .list .cards .card .checklists .checklist {
   margin: 4px 0;
-  border-top: 5px solid #a7a7a7;
+  border-left: 3px solid #a7a7a7;
   background: #ffffff;
-  padding: 8px;
+  padding: 0 8px;
 }
-/* line 351, less/main.scss */
+/* line 354, less/main.scss */
 .trello-lists .list .cards .card .checklists .checklist h3 {
-  margin: 0 0 5px 0;
-  color: black;
-  font-size: 1.3em;
+  margin: 0 0 8px 0;
+  color: #c1c1c1;
+  font-size: 0.9em;
   font-weight: bold;
 }
-/* line 358, less/main.scss */
+/* line 361, less/main.scss */
 .trello-lists .list .cards .card .checklists .checklist .check-item {
   color: orange;
 }
-/* line 361, less/main.scss */
+/* line 364, less/main.scss */
 .trello-lists .list .cards .card .checklists .checklist .check-item.complete {
   color: green;
 }
 
-/* line 373, less/main.scss */
+/* line 376, less/main.scss */
 .no-data h4 {
   text-align: center;
   font-size: 2em;
   margin: 4% 0;
   color: #9c9c9c;
 }
-/* line 378, less/main.scss */
+/* line 381, less/main.scss */
 .no-data h4 i {
   display: block;
   margin: 10px;
   font-size: 80px;
   color: #cacaca;
 }
-/* line 386, less/main.scss */
+/* line 389, less/main.scss */
 .no-data.smaller {
   font-size: 0.75em;
 }
-/* line 389, less/main.scss */
+/* line 392, less/main.scss */
 .no-data.smaller h4 i {
   font-size: 48px;
 }
 
-/* line 395, less/main.scss */
+/* line 398, less/main.scss */
 table.smaller-table * {
   font-size: 0.98em;
 }
